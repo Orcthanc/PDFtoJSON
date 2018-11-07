@@ -1,0 +1,3 @@
+[submodule "external/PDF-Writer"]
+	path = external/PDF-Writer
+	url = https://github.com/galkahana/PDF-Writer
