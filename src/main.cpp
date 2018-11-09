@@ -9,6 +9,9 @@
 #include <PDFWriter/PDFLiteralString.h>
 #include <PDFWriter/PDFBoolean.h>
 #include <PDFWriter/PDFInteger.h>
+#include <PDFWriter/PDFHexString.h>
+#include <PDFWriter/PDFReal.h>
+#include <PDFWriter/PDFArray.h>
 
 #include <map>
 #include <exception>
@@ -20,6 +23,10 @@
 #define MAX( a, b ) (a) > (b) ? (a) : (b)
 
 const char* PDFObjectTypeToCString( PDFParser&, PDFObject&, char * );
+
+std::vector<std::string> blacklist = {
+	"Widths"
+};
 
 std::vector<ObjectIDType> objs;
 
@@ -33,8 +40,8 @@ void parseObject( PDFParser& parser, PDFObject& obj, int ident ){
 		case PDFObject::ePDFObjectLiteralString:
 			printf( "%s%s\n", std::string( ident * 2, ' ' ).c_str(), ((PDFLiteralString*)&obj)->GetValue().c_str() );
 			break;
-		//TODO
 		case PDFObject::ePDFObjectHexString:
+			printf( "%s%s\n", std::string( ident * 2, ' ' ).c_str(), ((PDFHexString*)&obj)->GetValue().c_str() );
 			break;
 		case PDFObject::ePDFObjectNull:
 			printf( "%s%s\n", std::string( ident * 2, ' ' ).c_str(), "NULL" );
@@ -45,11 +52,27 @@ void parseObject( PDFParser& parser, PDFObject& obj, int ident ){
 		case PDFObject::ePDFObjectInteger:
 			printf( "%s%lli\n", std::string( ident * 2, ' ' ).c_str(), ((PDFInteger*)&obj)->GetValue() );
 			break;
-		//TODO
 		case PDFObject::ePDFObjectReal:
+			printf( "%s%f\n", std::string( ident * 2, ' ' ).c_str(), ((PDFReal*)&obj)->GetValue() );
 			break;
-		//TODO
 		case PDFObject::ePDFObjectArray:
+			{
+				for( size_t i = 0; i < ((PDFArray*)&obj)->GetLength(); i++ ){
+
+					PDFObject * obj2 = ((PDFArray*)&obj)->QueryObject( i );
+
+					if( obj2->GetType() == PDFObject::ePDFObjectIndirectObjectReference ){
+						if( std::find( objs.begin(), objs.end(), ((PDFIndirectObjectReference*)obj2)->mObjectID ) != objs.end() )
+							continue;
+					}
+
+					char * pnt = nullptr;					
+					printf( "%s%s\n", std::string( ident * 2, ' ' ).c_str(), PDFObjectTypeToCString( parser, *obj2, pnt ));
+					parseObject( parser, *obj2, ident + 1 );
+					if( pnt == nullptr )
+						delete[] pnt;
+				}
+			}
 			break;
 		case PDFObject::ePDFObjectDictionary:
 			{
@@ -58,15 +81,23 @@ void parseObject( PDFParser& parser, PDFObject& obj, int ident ){
 				char * pnt = nullptr;
 
 				while( it.MoveNext() ){
+
+					if( it.GetValue()->GetType() == PDFObject::ePDFObjectIndirectObjectReference ){
+						if( std::find( objs.begin(), objs.end(), ((PDFIndirectObjectReference*)it.GetValue())->mObjectID ) != objs.end() )
+							continue;
+					}
+
 					int length = snprintf( NULL, 0, "%s%s:\n", std::string( ident * 2, ' ' ).c_str(), it.GetKey()->GetValue().c_str() );
 					printf( "%s%s:%s%s\n", 
 							std::string( ident * 2, ' ' ).c_str(), 
 							it.GetKey()->GetValue().c_str(), 
 							std::string( MAX( 150 - length, 10 ), ' ' ).c_str(),
 							PDFObjectTypeToCString( parser, *it.GetValue(), pnt ) );
-					if( pnt != nullptr )
+					if( pnt != nullptr ){
 						delete[] pnt;
-					if( strcmp( it.GetKey()->GetValue().c_str(), "Outlines" ))
+						pnt = nullptr;
+					}
+					if( std::find( blacklist.begin(), blacklist.end(), it.GetKey()->GetValue() ) == blacklist.end() )
 						parseObject( parser, *it.GetValue(), ident + 1 );
 				}
 				break;
