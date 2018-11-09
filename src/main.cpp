@@ -6,32 +6,49 @@
 #include <PDFWriter/PDFName.h>
 #include <PDFWriter/PDFObject.h>
 #include <PDFWriter/PDFIndirectObjectReference.h>
+#include <PDFWriter/PDFLiteralString.h>
+#include <PDFWriter/PDFBoolean.h>
+#include <PDFWriter/PDFInteger.h>
 
 #include <map>
 #include <exception>
 #include <string>
 #include <string.h>
+#include <vector>
+#include <algorithm>
 
 #define MAX( a, b ) (a) > (b) ? (a) : (b)
 
 const char* PDFObjectTypeToCString( PDFParser&, PDFObject&, char * );
 
+std::vector<ObjectIDType> objs;
+
 void parseObject( PDFParser& parser, PDFObject& obj, int ident ){
+	if( ident > 60 )
+		return;
 	switch( obj.GetType() ){
 		case PDFObject::ePDFObjectBoolean:
+			printf( "%s%s\n", std::string( ident * 2, ' ' ).c_str(), ((PDFBoolean*)&obj)->GetValue() ? "true" : "false" );
 			break;
 		case PDFObject::ePDFObjectLiteralString:
+			printf( "%s%s\n", std::string( ident * 2, ' ' ).c_str(), ((PDFLiteralString*)&obj)->GetValue().c_str() );
 			break;
+		//TODO
 		case PDFObject::ePDFObjectHexString:
 			break;
 		case PDFObject::ePDFObjectNull:
+			printf( "%s%s\n", std::string( ident * 2, ' ' ).c_str(), "NULL" );
 			break;
 		case PDFObject::ePDFObjectName:
+			printf( "%s%s\n", std::string( ident * 2, ' ' ).c_str(), ((PDFName*)&obj)->GetValue().c_str() );
 			break;
 		case PDFObject::ePDFObjectInteger:
+			printf( "%s%lli\n", std::string( ident * 2, ' ' ).c_str(), ((PDFInteger*)&obj)->GetValue() );
 			break;
+		//TODO
 		case PDFObject::ePDFObjectReal:
 			break;
+		//TODO
 		case PDFObject::ePDFObjectArray:
 			break;
 		case PDFObject::ePDFObjectDictionary:
@@ -45,7 +62,7 @@ void parseObject( PDFParser& parser, PDFObject& obj, int ident ){
 					printf( "%s%s:%s%s\n", 
 							std::string( ident * 2, ' ' ).c_str(), 
 							it.GetKey()->GetValue().c_str(), 
-							std::string( MAX( 128 - length, 10 ), ' ' ).c_str(),
+							std::string( MAX( 150 - length, 10 ), ' ' ).c_str(),
 							PDFObjectTypeToCString( parser, *it.GetValue(), pnt ) );
 					if( pnt != nullptr )
 						delete[] pnt;
@@ -56,12 +73,17 @@ void parseObject( PDFParser& parser, PDFObject& obj, int ident ){
 			}
 		case PDFObject::ePDFObjectIndirectObjectReference:
 			{
-				parseObject( parser, *parser.ParseNewObject( ((PDFIndirectObjectReference*)&obj)->mObjectID ), ident );
+				if( (std::find( objs.begin(), objs.end(), ((PDFIndirectObjectReference*)&obj)->mObjectID ) == objs.end() )){
+					objs.push_back( ((PDFIndirectObjectReference*)&obj)->mObjectID );
+					parseObject( parser, *parser.ParseNewObject( ((PDFIndirectObjectReference*)&obj)->mObjectID ), ident );
+				}
 			}
 			break;
+		//TODO
 		case PDFObject::ePDFObjectStream:
 			break;
 		case PDFObject::ePDFObjectSymbol:
+			printf( "%s%s\n", std::string( ident * 2, ' ' ).c_str(), "ERROR" );
 			break;
 		default:
 			throw new std::exception();
@@ -98,7 +120,7 @@ const char* PDFObjectTypeToCString( PDFParser& parser, PDFObject& obj, char * re
 
 				char * arr2 = new char[70];
 
-				snprintf( arr2, 70, "%s%s(%s)", arr, std::string( 69 - len, ' ' ).c_str(), "(ePDFObjectIndirectObjectReference)" );
+				snprintf( arr2, 70, "%s%s(%s)", arr, std::string( 69 - len, ' ' ).c_str(), "ePDFObjectIndirectObjectReference" );
 
 				return arr2;
 			}
