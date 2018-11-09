@@ -12,6 +12,8 @@
 #include <string>
 #include <string.h>
 
+#define MAX( a, b ) (a) > (b) ? (a) : (b)
+
 const char* PDFObjectTypeToCString( PDFParser&, PDFObject&, char * );
 
 void parseObject( PDFParser& parser, PDFObject& obj, int ident ){
@@ -43,11 +45,12 @@ void parseObject( PDFParser& parser, PDFObject& obj, int ident ){
 					printf( "%s%s:%s%s\n", 
 							std::string( ident * 2, ' ' ).c_str(), 
 							it.GetKey()->GetValue().c_str(), 
-							std::string( 64 - length, ' ' ).c_str(),
+							std::string( MAX( 128 - length, 10 ), ' ' ).c_str(),
 							PDFObjectTypeToCString( parser, *it.GetValue(), pnt ) );
 					if( pnt != nullptr )
 						delete[] pnt;
-					parseObject( parser, *it.GetValue(), ident + 1 );
+					if( strcmp( it.GetKey()->GetValue().c_str(), "Outlines" ))
+						parseObject( parser, *it.GetValue(), ident + 1 );
 				}
 				break;
 			}
@@ -91,11 +94,11 @@ const char* PDFObjectTypeToCString( PDFParser& parser, PDFObject& obj, char * re
 
 				strcpy( arr, PDFObjectTypeToCString( parser, *parser.ParseNewObject( ((PDFIndirectObjectReference*)&obj)->mObjectID ), nullptr));
 
-				int len = snprintf( NULL, 0, "%s%s", arr,"ePDFObjectIndirectObjectReference" );
+				int len = snprintf( NULL, 0, "%s%s", arr,"(ePDFObjectIndirectObjectReference)" );
 
 				char * arr2 = new char[70];
 
-				snprintf( arr2, 69, "%s%s(%s)", arr, std::string( 69 - len, ' ' ).c_str(), "ePDFObjectIndirectObjectReference" );
+				snprintf( arr2, 70, "%s%s(%s)", arr, std::string( 69 - len, ' ' ).c_str(), "(ePDFObjectIndirectObjectReference)" );
 
 				return arr2;
 			}
