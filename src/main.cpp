@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include "Character.h"
+
 #include <PDFWriter/InputFile.h>
 #include <PDFWriter/PDFParser.h>
 #include <PDFWriter/PDFDictionary.h>
@@ -13,6 +14,8 @@
 #include <PDFWriter/PDFReal.h>
 #include <PDFWriter/PDFArray.h>
 
+#include <stdio.h>
+
 #include <map>
 #include <exception>
 #include <string>
@@ -22,10 +25,17 @@
 
 #define MAX( a, b ) (a) > (b) ? (a) : (b)
 
+#define ROOT_NAME "Root"
+#define ACRO_FORM_NAME "AcroForm"
+#define FIELDS_NAME "Fields"
+
 const char* PDFObjectTypeToCString( PDFParser&, PDFObject&, char * );
 
 std::vector<std::string> blacklist = {
-	"Widths"
+	"Widths",
+	"Font",
+	"MK",						// Defines an appearance stream
+	"P"
 };
 
 std::vector<ObjectIDType> objs;
@@ -180,5 +190,15 @@ int main( int argc, char** argv ){
 
 	PDFDictionary *root = parser.GetTrailer();
 
-	parseObject( parser, *root, 0 );
+	if( root->Exists( ROOT_NAME )){
+		PDFDictionary *newRoot = (PDFDictionary*) parser.ParseNewObject( ((PDFIndirectObjectReference*)root->QueryDirectObject( ROOT_NAME ))->mObjectID );
+
+		if( newRoot->Exists( ACRO_FORM_NAME ) ){
+			PDFDictionary *acro = (PDFDictionary*) parser.ParseNewObject( ((PDFIndirectObjectReference*)newRoot->QueryDirectObject( ACRO_FORM_NAME ))->mObjectID );
+	
+			parseObject( parser, *acro->QueryDirectObject( FIELDS_NAME ), 0 );
+		}
+	}
+	else
+		printf( "No forms found" );
 }
