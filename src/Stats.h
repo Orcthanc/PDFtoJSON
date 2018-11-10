@@ -15,6 +15,8 @@ struct DND_Stat {
 	int8_t ability_score_bonus;
 	int8_t ability_score_mod;
 
+	DND_Stat() = default;
+
 	DND_Stat( DND_stat_names stat, std::string name ){
 		this->stat_type = stat;
 		this->stat_name = name;
