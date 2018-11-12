@@ -13,7 +13,7 @@ struct Character{
 	public:
 		std::string char_name;
 		DND_Stats stats;
-		std::vector<DND_Class> classes;
+		std::vector<DND_Class*> classes;
 		std::string background;
 		std::string race;
 		std::string alignment;
