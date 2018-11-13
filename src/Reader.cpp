@@ -13,12 +13,75 @@ std::map<std::string, EPDFFormObjectTValuesType> stoType = {
 	#include "pdfFormObjectTValues.inl"
 };
 
+std::vector<ObjectIDType> already_parsed;
+
 static std::string sanitize( std::string string ){
 	std::replace( string.begin(), string.end(), ' ', '_' );
 	return string;
 }
 
 bool readObject( Character& character, PDFDictionary& object, PDFParser& parser, std::string prefix ){
+	if( object.Exists( "P" )){
+		PDFObject *obj = object.QueryDirectObject( "P" );
+		if( obj->GetType() == PDFObject::ePDFObjectIndirectObjectReference ){
+			if( std::find( already_parsed.begin(), already_parsed.end(), ((PDFIndirectObjectReference*)obj)->mObjectID ) == already_parsed.end() ){
+				already_parsed.push_back( ((PDFIndirectObjectReference*)obj)->mObjectID );
+				obj = parser.ParseNewObject( ((PDFIndirectObjectReference*)obj)->mObjectID );
+
+				std::string newprefix;
+
+				if( object.Exists( "T" )){
+					newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__" );
+				}else{
+					newprefix = "";
+				}
+
+				readObject( character, *(PDFDictionary*)obj, parser, prefix + newprefix );
+			}
+		}else{
+			std::string newprefix;
+
+			if( object.Exists( "T" )){
+				newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__" );
+			}else{
+				newprefix = "";
+			}
+
+			readObject( character, *(PDFDictionary*)obj, parser, prefix + newprefix );
+		}
+	}
+
+	if( object.Exists( "Annots" )){
+		PDFObject *obj = object.QueryDirectObject( "Annots" );
+		if( obj->GetType() == PDFObject::ePDFObjectIndirectObjectReference ){
+			if( std::find( already_parsed.begin(), already_parsed.end(), ((PDFIndirectObjectReference*)obj)->mObjectID ) == already_parsed.end() ){
+				already_parsed.push_back( ((PDFIndirectObjectReference*)obj)->mObjectID );
+				obj = parser.ParseNewObject( ((PDFIndirectObjectReference*)obj)->mObjectID );
+
+				std::string newprefix;
+
+				if( object.Exists( "T" )){
+					newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__" );
+				}else{
+					newprefix = "";
+				}
+
+				readArr( character, *(PDFArray*)obj, parser, prefix + newprefix );
+			}
+		}else{
+			std::string newprefix;
+
+			if( object.Exists( "T" )){
+				newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__" );
+			}else{
+				newprefix = "";
+			}
+
+			readArr( character, *(PDFArray*)obj, parser, prefix + newprefix );
+		}
+	}
+
+
 	if( !object.Exists( "T" )){
 		if( object.Exists( "V" )){
 			printf( "Found weird object:\t\t\t%s\n", ((PDFLiteralString*)object.QueryDirectObject( "V" ))->GetValue().c_str() );
@@ -30,7 +93,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 	auto s_key = sanitize( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() );
 
 	if( object.Exists( "Kids" )){
-		return readArr( character, *(PDFArray*)object.QueryDirectObject( "Kids" ), parser, prefix + s_key + "__" );
+		readArr( character, *(PDFArray*)object.QueryDirectObject( "Kids" ), parser, prefix + s_key + "__" );
 		
 	}
 	
@@ -42,7 +105,8 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 	std::string value = std::string(((PDFLiteralString*)object.QueryDirectObject( "V" ))->GetValue());
 
 	auto key = stoType.find( prefix + s_key );
-	if( key == stoType.end() ){
+	if( 	//key == stoType.end() 
+			true){
 		printf( "Keyword %s%s not found:\t\t%s\n", prefix.c_str(), s_key.c_str(), sanitize( value ).c_str() );
 		return false;
 	}
@@ -456,28 +520,36 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case econc__5__9:
 		return false;
+	//Slot total string
 	case eSpell_slots_5:
 		return false;
+	//More spell params "Yes" or "Off"
 	case espell6__1:
 		return false;
 	case espell6__2:
 		return false;
+	//string
 	case eSpell_slots_6:
 		return false;
+	//"Yes" or "Off"
 	case espell7__1:
 		return false;
 	case espell7__2:
 		return false;
 	case espell8__1:
 		return false;
+	//Strings
 	case eSpell_slots_8:
 		return false;
 	case eSpell_slots_9:
 		return false;
+	//"Yes" or "Off"
 	case espell9__1:
 		return false;
+	//string
 	case eSpell_slots_7:
 		return false;
+	//Spell names string
 	case eSpell6__2:
 		return false;
 	case eSpell6__3:
@@ -558,6 +630,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case eSpell8__10:
 		return false;
+	//Magic Itemnames string
 	case emagic__item__text__0:
 		return false;
 	case emagic__item__text__1:
@@ -614,6 +687,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case emagic__item__text__28:
 		return false;
+	//speeds string
 	case erun:
 		return false;
 	case eclimb:
@@ -622,8 +696,10 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case efly:
 		return false;
+	//Weird, string
 	case ecomp__item__0__0:
 		return false;
+	//Companion speeds string
 	case ecomp__run:
 		return false;
 	case ecomp__climb:
@@ -634,6 +710,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case ecomp__darkvision:
 		return false;
+	//Apparently companions know spells, string
 	case ecomp__points__name:
 		return false;
 	case ecomp__points__total:
@@ -674,6 +751,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case espell__slot__7__total:
 		return false;
+	//Money string
 	case epp:
 		return false;
 	case egp:
@@ -684,8 +762,10 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case ecp:
 		return false;
+	//carrying cap string
 	case ecarrying__capacity:
 		return false;
+	//Weapon Overview fields most string, when ending with single letter either "Yes" or "Off"
 	case eweap__1__name:
 		return false;
 	case eweap__1__atk:
@@ -728,6 +808,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case eweap__5_dmg:
 		return false;
+	//ammo overview fields string
 	case eammo1_name:
 		return false;
 	case eammo__1__total:
@@ -746,6 +827,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case eammo__4__used:
 		return false;
+	//armor worn string
 	case ehead:
 		return false;
 	case eneck:
@@ -762,6 +844,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case ebelt:
 		return false;
+	//inventory string
 	case ebackpack__1__0__0:
 		return false;
 	case ebackpack__1__0__1:
@@ -790,6 +873,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case ebackpack__1__6__1:
 		return false;
+	//
 	case ebackpack__wt__1__0__0:
 		return false;
 	case ebackpack__wt__1__0__1:

@@ -211,5 +211,5 @@ int main( int argc, char** argv ){
 		printf( "No forms found" );
 
 
-	printf( "%s\n", character.classes[0]->name.c_str() );
+	//printf( "%s\n", character.classes[0]->name.c_str() );
 }
