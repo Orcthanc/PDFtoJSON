@@ -52,6 +52,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	}
 	switch( key->second ){
+	//classname
 	case eclass:
 		if( character.classes.size() == 0 ){
 			printf( "Created class\n" );
@@ -59,6 +60,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		}
 		character.classes[0]->name = value;
 		return true;
+	//spellslot used?	Either "Yes" or "Off"
 	case espell1__4:
 		return false;
 	case espell1__3:
@@ -79,6 +81,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case espell3__1:
 		return false;
+	//Spellparams "Yes" or "Off"
 	case espell3__13__conc:
 		return false;
 	case espell3__13__S:
@@ -121,6 +124,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case espell5__2:
 		return false;
+	//Spellslot amount string
 	case eSpell_slots_2:
 		return false;
 	case eSpell_slots_4:
@@ -129,6 +133,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case eSpell_slots_1:
 		return false;
+	//Cantrip names on spellcasting sheet string
 	case eCantrip1:
 		return false;
 	case eCantrip2:
@@ -145,6 +150,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case eCantrip8:
 		return false;
+	//More spells string
 	case eSpell1__13:
 		return false;
 	case eSpell1__2:
@@ -267,6 +273,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case eSpell5__9:
 		return false;
+	//Cantrip params "Yes" or "Off"
 	case ecan__1__M:
 		return false;
 	case ecan__conc__1:
@@ -287,6 +294,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 		return false;
 	case ecan__8__S:
 		return false;
+	//More spellparams with retarded names... "Yes" or "Off"
 	case e1__1__conc:
 		return false;
 	case e1__2__M:
