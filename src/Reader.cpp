@@ -8,14 +8,9 @@
 #include <map>
 #include <algorithm>
 
-enum EPDFFormObjectTValuesType{
-	#define VALUE( name ) e##name,
+std::map<std::string, EPDFFormObjectTValuesType> stoType = {
+	#define VALUE( name ) { #name, e##name },
 	#include "pdfFormObjectTValues.inl"
-};
-
-std::map<std::string, EPDFFormObjectTValuesType> stoT = {
-#define VALUE( name ) { #name, e##name },
-#include "pdfFormObjectTValues.inl"
 };
 
 static std::string sanitize( std::string string ){
@@ -46,8 +41,8 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 
 	std::string value = std::string(((PDFLiteralString*)object.QueryDirectObject( "V" ))->GetValue());
 
-	auto key = stoT.find( s_key );
-	if( key == stoT.end() ){
+	auto key = stoType.find( prefix + s_key );
+	if( key == stoType.end() ){
 		printf( "Keyword %s%s not found:\t\t%s\n", prefix.c_str(), s_key.c_str(), sanitize( value ).c_str() );
 		return false;
 	}
