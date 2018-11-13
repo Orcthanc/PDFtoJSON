@@ -31,9 +31,9 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 				std::string newprefix;
 
 				if( object.Exists( "T" )){
-					newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__" );
+					newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__I_P__" );
 				}else{
-					newprefix = "";
+					newprefix = "__I_P__";
 				}
 
 				readObject( character, *(PDFDictionary*)obj, parser, prefix + newprefix );
@@ -42,9 +42,9 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 			std::string newprefix;
 
 			if( object.Exists( "T" )){
-				newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__" );
+				newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__P__" );
 			}else{
-				newprefix = "";
+				newprefix = "__P__";
 			}
 
 			readObject( character, *(PDFDictionary*)obj, parser, prefix + newprefix );
@@ -61,9 +61,9 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 				std::string newprefix;
 
 				if( object.Exists( "T" )){
-					newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__" );
+					newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__I_Annots__" );
 				}else{
-					newprefix = "";
+					newprefix = "__I_Annots__";
 				}
 
 				readArr( character, *(PDFArray*)obj, parser, prefix + newprefix );
@@ -72,9 +72,9 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 			std::string newprefix;
 
 			if( object.Exists( "T" )){
-				newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__" );
+				newprefix = std::string( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() + "__Annots__" );
 			}else{
-				newprefix = "";
+				newprefix = "__Annots__";
 			}
 
 			readArr( character, *(PDFArray*)obj, parser, prefix + newprefix );
@@ -93,7 +93,7 @@ bool readObject( Character& character, PDFDictionary& object, PDFParser& parser,
 	auto s_key = sanitize( ((PDFLiteralString*)object.QueryDirectObject( "T" ))->GetValue() );
 
 	if( object.Exists( "Kids" )){
-		readArr( character, *(PDFArray*)object.QueryDirectObject( "Kids" ), parser, prefix + s_key + "__" );
+		readArr( character, *(PDFArray*)object.QueryDirectObject( "Kids" ), parser, prefix + s_key + "__Kids__" );
 		
 	}
 	
