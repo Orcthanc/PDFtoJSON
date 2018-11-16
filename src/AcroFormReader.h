@@ -15,6 +15,15 @@ class AcroFormReader{
 
 		void Parse( Character &character );
 
+		struct PDFFieldValues{
+			std::string name;
+			std::string full_name;
+			std::string alt_name;
+			std::string map_name;
+			bool do_not_export;
+		};
+
+
 	private:
 		struct PDFProperties{
 			std::string ft;
@@ -23,12 +32,14 @@ class AcroFormReader{
 			PDFArray opt;
 		};
 
+		
 		PDFParser parser;
 		PDFDictionary *acro_form;
+		std::vector<PDFFieldValues*> results;
 
 		bool parseFieldArr( PDFArray *array, PDFProperties inherited_props, std::string base_name );
-		bool parseField( PDFDictionary *dict, PDFProperties inherited_props, std::string base_name );
+		PDFFieldValues *parseField( PDFDictionary *dict, PDFProperties inherited_props, std::string base_name );
 		PDFDictionary *getAcroFormDict();
-		std::string toString( PDFObject & );
+		std::string toString( PDFObject * );
 		
 };
