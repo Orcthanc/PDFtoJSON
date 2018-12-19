@@ -11,4 +11,8 @@ int main( int argc, char** argv ){
 	}
 
 	AcroFormReader reader = AcroFormReader( argv[1] );
+
+	Character character;
+
+	reader.Parse( character );
 }

@@ -1,3 +1,5 @@
+#include <stdint.h>
+#include <string>
 
 enum ePDFValueType {
 	eOnOffValueType,
@@ -12,21 +14,21 @@ struct PDFValue {
 };
 
 struct PDFOnOffValue : PDFValue {
-	
+	bool value;
 };
 
 struct PDFRadioButtonValue : PDFValue {
-	
-};
-
-struct PDFRichTextValue : PDFValue {
-
+	uint8_t value;
 };
 
 struct PDFTextValue : PDFValue {
+	std::string* text;
+};
 
+struct PDFRichTextValue : PDFTextValue {
+	std::string* richText;
 };
 
 struct PDFChoiceValue : PDFValue {
-
+	std::string* text;
 };

@@ -29,8 +29,8 @@ std::map<std::string, eFieldType> stoEFieldType = {
 };
 
 
-static PDFObject* safeQuery( PDFParser& parser, PDFDictionary *dict, std::string name ){
-	return dict->Exists( name ) ? parser.QueryDictionaryObject( dict, name ) : nullptr;
+static PDFObject* safeQuery( PDFParser* parser, PDFDictionary *dict, std::string name ){
+	return dict->Exists( name ) ? parser->QueryDictionaryObject( dict, name ) : nullptr;
 }
 
 //Fills nullptr in the PDFProperties this with values from the PDFProperties extension, if possible
@@ -53,20 +53,21 @@ std::string AcroFormReader::toString( PDFObject *object ){
 }
 
 PDFDictionary *AcroFormReader::getAcroFormDict(){
-	PDFDictionary *catalog = (PDFDictionary*)parser.QueryDictionaryObject( (PDFDictionary*)parser.GetTrailer(), "Root" );
+	PDFDictionary *catalog = (PDFDictionary*)parser->QueryDictionaryObject( (PDFDictionary*)parser->GetTrailer(), "Root" );
 	
 	if( !catalog->Exists( "AcroForm" ))
 		throw std::exception();
 
-	PDFDictionary *acroform = (PDFDictionary*)parser.QueryDictionaryObject( catalog, "AcroForm" );
+	PDFDictionary *acroform = (PDFDictionary*)parser->QueryDictionaryObject( catalog, "AcroForm" );
 	delete catalog;
 	return acroform;
 }
 
 AcroFormReader::AcroFormReader( char* file_path ){
+	parser = new PDFParser();
 	InputFile file;
 	file.OpenFile( file_path );
-	parser.StartPDFParsing( file.GetInputStream() );
+	parser->StartPDFParsing( file.GetInputStream() );
 	acro_form = getAcroFormDict();
 }
 
@@ -74,14 +75,26 @@ AcroFormReader::~AcroFormReader(){
 	for( auto& value : results )
 		delete value;
 
-	parser.ResetParser();
+	parser->ResetParser();
+	delete parser;
 	delete acro_form;
 }
 
+static void printPDFFieldValues( std::vector<AcroFormReader::PDFFieldValues*>* arr ){
+	for( auto& a : *arr ){
+		printf( "%s\n", a->name->c_str() );
+		printPDFFieldValues( a->kids );
+	}
+}
+
 void AcroFormReader::Parse( Character &character ){
-	PDFArray *fieldarr = (PDFArray*)parser.QueryDictionaryObject( acro_form, "Fields" );
-	
-	parseFieldArr( fieldarr, PDFProperties(), "" );
+	PDFArray *fieldarr = (PDFArray*)parser->QueryDictionaryObject( acro_form, "Fields" );
+
+	PDFProperties properties = {};
+
+	std::vector<PDFFieldValues*>* arr = parseFieldArr( fieldarr, PDFProperties(), "" );
+
+	printPDFFieldValues( arr );
 
 	delete fieldarr;
 }
@@ -89,8 +102,12 @@ void AcroFormReader::Parse( Character &character ){
 std::vector<AcroFormReader::PDFFieldValues*>* AcroFormReader::parseFieldArr( PDFArray *array, PDFProperties inherited_props, std::string base_name ){
 
 	std::vector<PDFFieldValues*>* result = new std::vector<PDFFieldValues*>();
+
+	printf( " %i\n", ((PDFObject*)array)->GetType() );
+
 	for( size_t i = 0; i < array->GetLength(); i++ ){
-		PDFObject *obj = parser.QueryArrayObject( array, i );
+		printf("%lu  %lu\n", i, array->GetLength() );
+		PDFObject *obj = parser->QueryArrayObject( array, i );
 
 		PDFFieldValues* value = parseField( (PDFDictionary*)obj, inherited_props, base_name );
 		if( value )
@@ -128,7 +145,7 @@ AcroFormReader::PDFFieldValues* AcroFormReader::parseField( PDFDictionary *dict,
 	if( fieldname == "" && 
 			!dict->Exists( "Kids" ) &&
 			dict->Exists( "Subtype" ) ){
-		PDFObject* obj = parser.QueryDictionaryObject( dict, "Subtype" );
+		PDFObject* obj = parser->QueryDictionaryObject( dict, "Subtype" );
 		if( toString( obj ) == "Widget" )
 			return nullptr;
 	}
@@ -212,7 +229,7 @@ void AcroFormReader::parseFieldsValueData( AcroFormReader::PDFFieldValues* resul
 				}
 				else if(( flags >> 15 ) & 1 ){
 					result->type = new std::string( "radio" );
-					result->value = parseRadioButton( dict );
+					result->value = parseRadioButtonValue( dict );
 				}
 				else {
 					result->type = new std::string( "checkbox" );
@@ -228,7 +245,7 @@ void AcroFormReader::parseFieldsValueData( AcroFormReader::PDFFieldValues* resul
 				}
 				else {
 					result->type = new std::string( "plaintext" );
-					result->value = parseTextFieldValue( dict );
+					result->value = parseTextValue( dict );
 				}
 				break;
 			}
@@ -246,3 +263,126 @@ void AcroFormReader::parseFieldsValueData( AcroFormReader::PDFFieldValues* resul
 	}
 }
 
+static std::string* parseTextField( PDFParser* parser, PDFDictionary* dict, std::string fieldName ){
+	PDFObject* field = safeQuery( parser, dict, fieldName );
+	std::string* ret = nullptr;
+	if( !field )
+		return nullptr;
+	if( field->GetType() == PDFObject::ePDFObjectLiteralString ){
+		ret = new std::string( ((PDFLiteralString*)field)->GetValue() );
+
+	}else {
+		printf( "TODO: FixMe: Unimplemented if-branch" );
+		//TODO unimplemented PDFObjectStream
+		throw new std::exception();
+	}
+
+	return ret;
+}
+
+PDFValue* AcroFormReader::parseChoiceValue( PDFDictionary* dict ){
+	PDFObject* field = safeQuery( parser, dict, "V" );
+
+	std::string* value = new std::string();
+
+	if( field->GetType() == PDFDictionary::ePDFObjectArray ){
+		printf( "TODO: FixMe: Unimplemented if-branch parseChoiceValue" );
+		//TODO
+		throw new std::exception();
+	}
+	else if( field->GetType() == PDFDictionary::ePDFObjectLiteralString ){
+		*value += ((PDFLiteralString*)field)->GetValue();
+	}
+	else if( field->GetType() == PDFDictionary::ePDFObjectHexString ){
+		*value += ((PDFHexString*)field)->GetValue();
+	}
+
+	PDFChoiceValue* ret = new PDFChoiceValue();
+
+	ret->type = eChoiceValue;
+	ret->text = value;
+
+	return ret;
+}
+
+PDFValue* AcroFormReader::parseTextValue( PDFDictionary* dict ){
+	PDFTextValue* ret = new PDFTextValue();
+	ret->type = eTextValue;
+	ret->text = parseTextField( parser, dict, "V" );
+
+	return ret;
+}
+
+PDFValue* AcroFormReader::parseRichTextFieldValue( PDFDictionary* dict ){
+	PDFRichTextValue* ret = new PDFRichTextValue();
+	ret->type = eRichTextValue;
+	ret->text = parseTextField( parser, dict, "V" );
+	ret->richText = parseTextField( parser, dict, "RV" );
+
+	return ret;
+}
+
+PDFValue* AcroFormReader::parseOnOffValue( PDFDictionary* dict ){
+	PDFObject* v = safeQuery( parser, dict, "V" );
+	if( !v )
+		return nullptr;
+
+	std::string value = toString( v );
+
+	bool result = true;
+	if( value == "Off" || value == "" )
+		result = false;
+
+	PDFOnOffValue* ret = new PDFOnOffValue();
+	ret->type = ePDFValueType::eOnOffValueType;
+	ret->value = result;
+	
+	delete v;
+	return ret;
+}
+
+PDFValue* AcroFormReader::parseRadioButtonValue( PDFDictionary* dict ){
+	PDFObject* v = safeQuery( parser, dict, "V" );
+	if( !v )
+		return nullptr;
+	std::string value = toString( v );
+	delete v;
+
+	if( value == "Off" || value == "" )
+		return nullptr;
+
+	PDFArray* kids = (PDFArray*)safeQuery( parser, dict, "Kids" );
+	if( kids ){
+		for( size_t i = 0; i < kids->GetLength(); i++ ){
+			PDFObject* widgetDict = parser->QueryArrayObject( kids, i );
+			if( widgetDict ){
+				PDFObject* apDict = safeQuery( parser, (PDFDictionary*)widgetDict, "AP" );
+				if( apDict ){
+					PDFObject* nAppear = safeQuery( parser, (PDFDictionary*)apDict, "N" );
+					if( nAppear ){
+						if( ((PDFDictionary*)nAppear)->Exists( value )){
+							delete nAppear;
+							delete apDict;
+							delete widgetDict;
+							delete kids;
+
+							PDFRadioButtonValue* result = new PDFRadioButtonValue();
+							result->type = eRadioButtonValue;
+							result->value = i;
+							return result;
+						}
+						delete nAppear;
+					}
+					delete apDict;
+				}
+				delete widgetDict;
+			}
+		}
+		delete kids;
+		PDFRadioButtonValue* result = new PDFRadioButtonValue();
+		result->type = eRadioButtonValue;
+		result->value = -1;
+		return result;
+	}
+	return nullptr;
+}

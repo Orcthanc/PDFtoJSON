@@ -37,17 +37,17 @@ class AcroFormReader{
 			
 			PDFProperties* extend( PDFProperties& extension );
 			~PDFProperties(){
-#define SAFEDELETE( value ) if( value ) delete value;
-				SAFEDELETE( ft )
-				SAFEDELETE( ff )
-				SAFEDELETE( da )
-				SAFEDELETE( opt )
-#undef SAFEDELETE
+#define SAFE_DELETE( value ) if( value ) delete value;
+				SAFE_DELETE( ft )
+				SAFE_DELETE( ff )
+				SAFE_DELETE( da )
+				SAFE_DELETE( opt )
+#undef SAFE_DELETE
 			}
 		};
 
 		
-		PDFParser parser;
+		PDFParser* parser;
 		PDFDictionary *acro_form;
 		std::vector<PDFFieldValues*> results;
 
@@ -57,5 +57,11 @@ class AcroFormReader{
 		PDFFieldValues *parseField( PDFDictionary *dict, PDFProperties inherited_props, std::string base_name );
 		PDFDictionary *getAcroFormDict();
 		std::string toString( PDFObject * );
+
+		PDFValue* parseTextValue			( PDFDictionary* dict );
+		PDFValue* parseRichTextFieldValue	( PDFDictionary* dict );
+		PDFValue* parseOnOffValue			( PDFDictionary* dict );
+		PDFValue* parseRadioButtonValue		( PDFDictionary* dict );
+		PDFValue* parseChoiceValue			( PDFDictionary* dict );
 
 };
