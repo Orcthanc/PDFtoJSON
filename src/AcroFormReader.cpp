@@ -44,16 +44,16 @@ AcroFormReader::PDFProperties* AcroFormReader::PDFProperties::extend(  AcroFormR
 
 std::string AcroFormReader::toString( PDFObject *object ){
 	if( object->GetType() == PDFObject::ePDFObjectLiteralString ){
-		return ((PDFLiteralString*)&object)->GetValue();
+		return ((PDFLiteralString*)object)->GetValue();
 	} else if( object->GetType() == PDFObject::ePDFObjectHexString ){
-		return ((PDFHexString*)&object)->GetValue();
+		return ((PDFHexString*)object)->GetValue();
 	} else{
 		return nullptr;
 	}
 }
 
 PDFDictionary *AcroFormReader::getAcroFormDict(){
-	PDFDictionary *catalog = (PDFDictionary*)parser->QueryDictionaryObject( (PDFDictionary*)parser->GetTrailer(), "Root" );
+	PDFDictionary *catalog = (PDFDictionary*)parser->QueryDictionaryObject( parser->GetTrailer(), "Root" );
 	
 	if( !catalog->Exists( "AcroForm" ))
 		throw std::exception();
@@ -65,9 +65,9 @@ PDFDictionary *AcroFormReader::getAcroFormDict(){
 
 AcroFormReader::AcroFormReader( char* file_path ){
 	parser = new PDFParser();
-	InputFile file;
-	file.OpenFile( file_path );
-	parser->StartPDFParsing( file.GetInputStream() );
+	file = new InputFile();
+	file->OpenFile( file_path );
+	parser->StartPDFParsing( file->GetInputStream() );
 	acro_form = getAcroFormDict();
 }
 
@@ -92,7 +92,7 @@ void AcroFormReader::Parse( Character &character ){
 
 	PDFProperties properties = {};
 
-	std::vector<PDFFieldValues*>* arr = parseFieldArr( fieldarr, PDFProperties(), "" );
+	std::vector<PDFFieldValues*>* arr = parseFieldArr( fieldarr, properties, "" );
 
 	printPDFFieldValues( arr );
 

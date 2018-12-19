@@ -8,6 +8,7 @@
 #include <PDFWriter/PDFArray.h>
 
 #include <vector>
+#include <stdio.h>
 
 class AcroFormReader{
 	public:
@@ -48,6 +49,7 @@ class AcroFormReader{
 
 		
 		PDFParser* parser;
+		InputFile* file;
 		PDFDictionary *acro_form;
 		std::vector<PDFFieldValues*> results;
 
