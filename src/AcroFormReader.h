@@ -20,14 +20,14 @@ class AcroFormReader{
 		int Parse( Character &character, const char* path );
 
 		struct PDFFieldValues{
-			std::string* name;
-			std::string* full_name;
-			std::string* alt_name;
-			std::string* map_name;
-			std::string* type;
-			PDFValue* value;
-			bool* do_not_export;
-			std::vector<PDFFieldValues*>* kids;
+			std::unique_ptr<std::string> name;
+			std::unique_ptr<std::string> full_name;
+			std::unique_ptr<std::string> alt_name;
+			std::unique_ptr<std::string> map_name;
+			std::unique_ptr<std::string> type;
+			std::unique_ptr<PDFValue> value;
+			std::unique_ptr<bool> do_not_export;
+			std::vector<std::unique_ptr<PDFFieldValues>> kids;
 		};
 
 
@@ -57,15 +57,12 @@ class AcroFormReader{
 /*
 		void parseFieldsValueData( PDFFieldValues* result, PDFDictionary* dict, int flags, PDFProperties* inherited_props );
 */
-	int parseFieldArray( PDFArray* array, PDFProperties inherited_props, std::string base_name, std::vector<std::unique_ptr<PDFFieldValues>>& result );
-/*
-		std::vector<PDFFieldValues*>* parseKids( PDFDictionary* dict, PDFProperties inherited_props, std::string base_name );
-*/
-		PDFFieldValues* parseField( PDFDictionary* dict, PDFProperties inherited_props, std::string base_name );
-/*
-		PDFDictionary *getAcroFormDict();
-		std::string toString( PDFObject * );
+		int parseFieldArray( PDFArray* array, PDFProperties inherited_props, std::string base_name, std::vector<std::unique_ptr<PDFFieldValues>>& result );
 
+		int parseKids( PDFDictionary* dict, PDFProperties inherited_props, std::string base_name, std::vector<std::unique_ptr<PDFFieldValues>>& result );
+
+		int parseField( PDFDictionary* dict, PDFProperties inherited_props, std::string base_name, PDFFieldValues& result );
+/*
 		PDFValue* parseTextValue			( PDFDictionary* dict );
 		PDFValue* parseRichTextFieldValue	( PDFDictionary* dict );
 		PDFValue* parseOnOffValue			( PDFDictionary* dict );
