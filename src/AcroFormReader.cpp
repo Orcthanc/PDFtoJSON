@@ -47,7 +47,10 @@ std::string AcroFormReader::toString( PDFObject *object ){
 		return ((PDFLiteralString*)object)->GetValue();
 	} else if( object->GetType() == PDFObject::ePDFObjectHexString ){
 		return ((PDFHexString*)object)->GetValue();
+	} else if( object->GetType() == PDFObject::ePDFObjectName ){
+		return ((PDFName*)object)->GetValue();
 	} else{
+		printf( "%i\n", object->GetType() );
 		return nullptr;
 	}
 }
@@ -90,9 +93,7 @@ static void printPDFFieldValues( std::vector<AcroFormReader::PDFFieldValues*>* a
 void AcroFormReader::Parse( Character &character ){
 	PDFArray *fieldarr = (PDFArray*)parser->QueryDictionaryObject( acro_form, "Fields" );
 
-	PDFProperties properties = {};
-
-	std::vector<PDFFieldValues*>* arr = parseFieldArr( fieldarr, properties, "" );
+	std::vector<PDFFieldValues*>* arr = parseFieldArr( fieldarr, PDFProperties(), "" );
 
 	printPDFFieldValues( arr );
 
@@ -103,10 +104,7 @@ std::vector<AcroFormReader::PDFFieldValues*>* AcroFormReader::parseFieldArr( PDF
 
 	std::vector<PDFFieldValues*>* result = new std::vector<PDFFieldValues*>();
 
-	printf( " %i\n", ((PDFObject*)array)->GetType() );
-
 	for( size_t i = 0; i < array->GetLength(); i++ ){
-		printf("%lu  %lu\n", i, array->GetLength() );
 		PDFObject *obj = parser->QueryArrayObject( array, i );
 
 		PDFFieldValues* value = parseField( (PDFDictionary*)obj, inherited_props, base_name );
@@ -140,7 +138,7 @@ AcroFormReader::PDFFieldValues* AcroFormReader::parseField( PDFDictionary *dict,
 	int flags = ff ? ((PDFInteger*)ff)->GetValue() : 0;
 	SAFE_DELETE( ff );
 
-	flags = flags ? flags : *inherited_props.ff;
+	flags = flags ? flags : inherited_props.ff ? *inherited_props.ff : 0;
 
 	if( fieldname == "" && 
 			!dict->Exists( "Kids" ) &&
@@ -164,17 +162,26 @@ AcroFormReader::PDFFieldValues* AcroFormReader::parseField( PDFDictionary *dict,
 	results.push_back( result );
 
 	PDFObject* kids = safeQuery( parser, dict, "Kids" );
+
+	PDFProperties own_props = {
+		new std::string( inherited_props.ft ? *inherited_props.ft : "" ),
+		new int( flags ),
+		//new std::string( inherited_props.da ? *inherited_props.da : "" ),
+		new std::string( "" ),
+		inherited_props.opt
+	};
+
 	if( kids ){
-		std::vector<PDFFieldValues*>* kid_values = parseKids( dict, inherited_props, base_name + fieldname + "." );
+		std::vector<PDFFieldValues*>* kid_values = parseKids( dict, own_props, base_name + fieldname + "." );
 		if( kid_values->size() != 0 ){
 			result->kids = kid_values;
 		}else {
 			//Leaf
-			parseFieldsValueData( result, dict, flags, &inherited_props );
+			parseFieldsValueData( result, dict, flags, &own_props );
 		}
 	}else {
 		//Also Leaf
-		parseFieldsValueData( result, dict, flags, &inherited_props );
+		parseFieldsValueData( result, dict, flags, &own_props );
 	}
 
 	return result;
@@ -183,26 +190,26 @@ AcroFormReader::PDFFieldValues* AcroFormReader::parseField( PDFDictionary *dict,
 
 std::vector<AcroFormReader::PDFFieldValues*>* AcroFormReader::parseKids( PDFDictionary* dict, AcroFormReader::PDFProperties inherited_props, std::string base_name ){
 	
-	PDFProperties* local_props = {};
+	PDFProperties local_props;
 	
 	PDFObject* ft = safeQuery( parser, dict, "FT" );
-	local_props->ft = ft ? new std::string(	toString( ft )) : nullptr;
+	local_props.ft = ft ? new std::string(	toString( ft )) : nullptr;
 	SAFE_DELETE( ft );
 	
 	PDFObject* ff = safeQuery( parser, dict, "Ff" );
-	local_props->ff = ff ? new int( ((PDFInteger*)ff)->GetValue() ) : nullptr;
+	local_props.ff = ff ? new int( ((PDFInteger*)ff)->GetValue() ) : nullptr;
 	SAFE_DELETE( ff );
 
 	PDFObject* da = safeQuery( parser, dict, "DA" );
-	local_props->da = da ? new std::string( toString( da )) : nullptr;
+	local_props.da = da ? new std::string( toString( da )) : nullptr;
 	SAFE_DELETE( da );
 
-	local_props->opt = (PDFArray*)safeQuery( parser, dict, "Opt" );
+	local_props.opt = (PDFArray*)safeQuery( parser, dict, "Opt" );
 
-	local_props->extend( inherited_props );
+	local_props.extend( inherited_props );
 
 	PDFObject* kid_arr = safeQuery( parser, dict, "Kids" );
-	std::vector<PDFFieldValues*>* result = parseFieldArr( (PDFArray*)kid_arr, *local_props, base_name );
+	std::vector<PDFFieldValues*>* result = parseFieldArr( (PDFArray*)kid_arr, local_props, base_name );
 	delete kid_arr;
 	return result;
 }
