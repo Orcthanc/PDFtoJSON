@@ -252,7 +252,7 @@ void AcroFormReader::parseRadioButtonValue( PDFDictionary* dict, std::unique_ptr
 
 	if( !dict->Exists( "V" )){
 		//No button at all
-		result->value = unique_ptr<PDFValue>( new PDFValue{ eNoValue } );
+		result->value = unique_ptr<PDFValue>( new PDFValue( eNoValue ) );
 	}else {
 		string button_value = safeQueryToString( parser, dict, "V" );
 		if( button_value == "" || button_value == "Off" ){

@@ -12,6 +12,11 @@ enum ePDFValueType {
 
 struct PDFValue {
 	ePDFValueType type;
+	PDFValue() = default;
+	PDFValue( ePDFValueType type ){
+		this->type = type;
+	}
+	virtual ~PDFValue() = default;
 };
 
 struct PDFOnOffValue : PDFValue {
