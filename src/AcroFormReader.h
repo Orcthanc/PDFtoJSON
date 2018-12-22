@@ -26,7 +26,7 @@ class AcroFormReader{
 			std::unique_ptr<std::string> alt_name;
 			std::unique_ptr<std::string> map_name;
 			std::unique_ptr<std::string> type;
-			std::unique_ptr<PDFValue> value;
+			std::shared_ptr<PDFValue> value;
 			std::unique_ptr<bool> do_not_export;
 			std::vector<std::unique_ptr<PDFFieldValues>> kids;
 		};

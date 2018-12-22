@@ -175,22 +175,91 @@ int AcroFormReader::parseFieldsValueData( PDFDictionary* dict, int flags, PDFPro
 }
 
 void AcroFormReader::parseTextValue( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result ){
+	result->type = unique_ptr<string>( new string( "plaintext" ));
 
+	unique_ptr<PDFTextValue> value( new PDFTextValue() );
+	value->type = eTextValue;
+	value->text = safeQueryToString( parser, dict, "V" );
+
+	result->value = move( value );
 }
 
 void AcroFormReader::parseRichTextFieldValue( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result ){
+	result->type = unique_ptr<string>( new string( "richtext" ));
 
+	unique_ptr<PDFRichTextValue> value( new PDFRichTextValue() );
+	value->type = eTextValue;
+	value->text = safeQueryToString( parser, dict, "V" );
+	value->richText = safeQueryToString( parser, dict, "RV" );
+
+	result->value = move( value );
 }
 
 void AcroFormReader::parseOnOffValue( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result ){
+	result->type = unique_ptr<string>( new string( "checkbox" ));
 
+	unique_ptr<PDFOnOffValue> value( new PDFOnOffValue() );
+
+	value->type = eOnOffValue;
+
+	string is_on = safeQueryToString( parser, dict, "V" );
+	if( is_on == "" || is_on == "Off" ){
+		value->value = false;
+	}else {
+		value->value = true;
+	}
+
+	result->value = move( value );
 }
 
 void AcroFormReader::parseRadioButtonValue( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result ){
+	result->type = unique_ptr<string>( new string( "radio" ));
 
+	if( !dict->Exists( "V" )){
+		//No button at all
+		result->value = unique_ptr<PDFValue>( new PDFValue{ eNoValue } );
+	}else {
+		string button_value = safeQueryToString( parser, dict, "V" );
+		if( button_value == "" || button_value == "Off" ){
+			//Botched checkbox thats unchecked
+			unique_ptr<PDFOnOffValue> value( new PDFOnOffValue() );
+			value->type = eOnOffValue;
+			value->value = false;
+			result->value = move( value );
+		}else {
+			if( !dict->Exists( "Kids" )){
+				//Botched but checked checkbox
+				unique_ptr<PDFOnOffValue> value( new PDFOnOffValue() );
+				value->type = eOnOffValue;
+				value->value = true;
+				result->value = move( value );
+			}else {
+				PDFObjectCastPtr<PDFArray> kids( parser.QueryDictionaryObject( dict, "Kids" ));
+				for( size_t i = 0; i < kids->GetLength(); i++ ){
+					PDFObjectCastPtr<PDFDictionary> widgetDict( parser.QueryArrayObject( kids.GetPtr(), i ));
+					PDFObjectCastPtr<PDFDictionary> apDict( parser.QueryDictionaryObject( widgetDict.GetPtr(), "AP" ));
+					PDFObjectCastPtr<PDFDictionary> apNameDict( parser.QueryDictionaryObject( apDict.GetPtr(), "N" ));
+					if( apNameDict->Exists( button_value )){
+						unique_ptr<PDFRadioButtonValue> value( new PDFRadioButtonValue );
+						value->type = eRadioButtonValue;
+						value->value = i;
+						result->value = move( value );
+						break;
+					}
+				}
+			}
+		}
+	}
+	result->value = unique_ptr<PDFValue>( new PDFValue{ eNoValue } );
 }
 
 void AcroFormReader::parseChoiceValue( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result ){
+	result->type = unique_ptr<string>( new string( "choice" ));
 
+	unique_ptr<PDFChoiceValue> value( new PDFChoiceValue() );
+	value->type = eTextValue;
+	value->text = safeQueryToString( parser, dict, "V" );
+
+	result->value = move( value );
 }
 
