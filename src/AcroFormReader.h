@@ -7,6 +7,7 @@
 #include <PDFWriter/PDFDictionary.h>
 #include <PDFWriter/PDFParser.h>
 #include <PDFWriter/InputFile.h>
+#include <PDFWriter/PDFObjectCast.h>
 
 #include <vector>
 #include <stdio.h>
@@ -39,20 +40,15 @@ class AcroFormReader{
 			std::string ft;
 			int ff;
 			std::string da;
-			PDFArray *opt;
+			PDFObjectCastPtr<PDFArray> opt;
 
-			void merge( std::string ft, int ff, std::string da, PDFArray* opt ){
+			void merge( std::string ft, int ff, std::string da, PDFObjectCastPtr<PDFArray> opt ){
 				ft = ft != "" ? ft : this->ft;
 				ff = ff ? ff : this->ff;
 				da = da != "" ? da : this->da;
-				opt = opt ? opt : this->opt;
+				opt = opt.GetPtr() ? opt : this->opt;
 			}
 
-			~PDFProperties(){
-				if( opt )
-					delete opt;
-				opt = NULL;
-			}
 		};
 /*
 		void parseFieldsValueData( PDFFieldValues* result, PDFDictionary* dict, int flags, PDFProperties* inherited_props );

@@ -67,13 +67,14 @@ int AcroFormReader::Parse( Character &character, const char* path ){
 int AcroFormReader::parseFieldArray( PDFArray* array, PDFProperties inherited_props, string base_name, vector<unique_ptr<PDFFieldValues>>& result ){
 
 	for( size_t i = 0; i < array->GetLength(); ++i ){
-		printf( "%lu\n", i );
 		PDFObjectCastPtr<PDFDictionary> element( parser.QueryArrayObject( array, i ));
 		PDFFieldValues* field_value = new PDFFieldValues();
 		int failed_to_insert = parseField( element.GetPtr(), inherited_props, base_name, *field_value );
 
 		if( !failed_to_insert )
 			result.push_back( unique_ptr<PDFFieldValues>( field_value ));
+		else
+			delete field_value;
 	}
 
 	return 0;
@@ -118,5 +119,17 @@ int AcroFormReader::parseField( PDFDictionary* dict, PDFProperties inherited_pro
 
 
 int AcroFormReader::parseKids( PDFDictionary* dict, PDFProperties inherited_props, string base_name, vector<unique_ptr<PDFFieldValues>>& result ){
+
+	std::string ft = safeQueryToString( parser, dict, "FT" );
+	int ff = safeQueryToInteger( parser, dict, "Ff" );
+	std::string da = safeQueryToString( parser, dict, "DA" );
+	PDFObjectCastPtr<PDFArray> arr = parser.QueryDictionaryObject( dict, "Opt" );
+
+	inherited_props.merge( ft, ff, da, arr );
+
+	PDFObjectCastPtr<PDFArray> childs = parser.QueryDictionaryObject( dict, "Kids" );
+
+	parseFieldArray( childs.GetPtr(), inherited_props, base_name, result );
+
 	return 0;
 }
