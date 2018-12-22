@@ -43,6 +43,44 @@ static int safeQueryToInteger( PDFParser& parser, PDFDictionary* dict, const cha
 	return int_object->GetValue();
 }
 
+static void printValue( PDFValue const* value ){
+	if( !value ){
+		printf( "\n" );
+		return;
+	}
+	switch( value->type ){
+		case eNoValue:
+			printf( "\n" );
+			break;
+		case eOnOffValue:
+			printf( "%s\n", ((PDFOnOffValue*)value)->value ? "On" : "Off" );
+			break;
+		case eRadioButtonValue:
+			printf( "%u\n", ((PDFRadioButtonValue*)value)->value );
+			break;
+		case eRichTextValue:
+			printf( "%s\n", ((PDFRichTextValue*)value)->text.c_str() );
+			break;
+		case eTextValue:
+			printf( "%s\n", ((PDFTextValue*)value)->text.c_str() );
+			break;
+		case eChoiceValue:
+			printf( "%s\n", ((PDFChoiceValue*)value)->text.c_str() );
+			break;
+	}
+}
+
+static void printParsedThings( vector<unique_ptr<AcroFormReader::PDFFieldValues>> const&  values ){
+	for( auto& a : values ){
+		if( a->full_name && *a->full_name != "" ){
+			printf( "%s: %s:\t\t", a->full_name->c_str(), ""/*a->type->c_str()*/ );
+			printValue( a->value.get() );
+		}
+
+		printParsedThings( a->kids );
+	}
+}
+
 int AcroFormReader::Parse( Character &character, const char* path ){
 	pdf.OpenFile( path );
 	parser.StartPDFParsing( pdf.GetInputStream() );
@@ -61,6 +99,10 @@ int AcroFormReader::Parse( Character &character, const char* path ){
 
 	parseFieldArray( digital_form_fields.GetPtr(), inherited_props, "", result );
 
+	printf( "%lu\n", result.size() );
+
+	printParsedThings( result );
+
 	return 0;
 }
 
@@ -71,7 +113,7 @@ int AcroFormReader::parseFieldArray( PDFArray* array, PDFProperties inherited_pr
 		PDFFieldValues* field_value = new PDFFieldValues();
 		int parsed = parseField( element.GetPtr(), inherited_props, base_name, *field_value );
 
-		if( !parsed )
+		if( parsed )
 			result.push_back( unique_ptr<PDFFieldValues>( field_value ));
 		else
 			delete field_value;
