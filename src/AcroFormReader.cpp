@@ -72,8 +72,8 @@ static void printValue( PDFValue const* value ){
 
 static void printParsedThings( vector<unique_ptr<AcroFormReader::PDFFieldValues>> const&  values ){
 	for( auto& a : values ){
-		if( a->full_name && *a->full_name != "" ){
-			printf( "%s: %s:\t\t", a->full_name->c_str(), ""/*a->type->c_str()*/ );
+		if( a->full_name && *a->full_name != "" && a->type ){
+			printf( "%s: %s:\t\t", a->full_name->c_str(), a->type->c_str() );
 			printValue( a->value.get() );
 		}
 
@@ -99,8 +99,6 @@ int AcroFormReader::Parse( Character &character, const char* path ){
 
 	parseFieldArray( digital_form_fields.GetPtr(), inherited_props, "", result );
 
-	printf( "%lu\n", result.size() );
-
 	printParsedThings( result );
 
 	return 0;
@@ -110,20 +108,18 @@ int AcroFormReader::parseFieldArray( PDFArray* array, PDFProperties inherited_pr
 
 	for( size_t i = 0; i < array->GetLength(); ++i ){
 		PDFObjectCastPtr<PDFDictionary> element( parser.QueryArrayObject( array, i ));
-		PDFFieldValues* field_value = new PDFFieldValues();
-		int parsed = parseField( element.GetPtr(), inherited_props, base_name, *field_value );
+		unique_ptr<PDFFieldValues> field_value( new PDFFieldValues() );
+		int parsed = parseField( element.GetPtr(), inherited_props, base_name, field_value );
 
 		if( parsed )
-			result.push_back( unique_ptr<PDFFieldValues>( field_value ));
-		else
-			delete field_value;
+			result.push_back( move( field_value ) );
 	}
 
 	return result.size();
 }
 
 
-int AcroFormReader::parseField( PDFDictionary* dict, PDFProperties inherited_props, string base_name, PDFFieldValues& result ){
+int AcroFormReader::parseField( PDFDictionary* dict, PDFProperties inherited_props, string base_name, unique_ptr<PDFFieldValues>& result ){
 	string localNameT = safeQueryToString( parser, dict, "T" );
 	string localNameTU = safeQueryToString( parser, dict, "TU" );
 	string localNameTM = safeQueryToString( parser, dict, "TM" );
@@ -138,26 +134,23 @@ int AcroFormReader::parseField( PDFDictionary* dict, PDFProperties inherited_pro
 
 	//TODO check if corrupted variables
 	
-	result.name = unique_ptr<string>( new string( localNameT ));
-	result.full_name = unique_ptr<string>( new string( localNameT != "" ? base_name + localNameT : "" ));
-	result.alt_name = unique_ptr<string>( new string( localNameTU ));
-	result.map_name = unique_ptr<string>( new string( localNameTM ));
-	result.do_not_export = unique_ptr<bool>( new bool(( flags >> 2 ) & 1 ));
+	result->name = unique_ptr<string>( new string( localNameT ));
+	result->full_name = unique_ptr<string>( new string( localNameT != "" ? base_name + localNameT : "" ));
+	result->alt_name = unique_ptr<string>( new string( localNameTU ));
+	result->map_name = unique_ptr<string>( new string( localNameTM ));
+	result->do_not_export = unique_ptr<bool>( new bool(( flags >> 2 ) & 1 ));
 
 	if( dict->Exists( "Kids" )){
-		vector<unique_ptr<PDFFieldValues>> kids;
+		vector<unique_ptr<PDFFieldValues>> kids = {};
 		int kids_avaible = parseKids( dict, inherited_props, base_name + localNameT + ".", kids );
 		if( kids_avaible ){
 			//kids
-			result.kids = move( kids );
+			result->kids = move( kids );
 		}else {
-			goto parseFieldValueData;
+			parseFieldsValueData( dict, flags, inherited_props, result );
 		}
 	}else {
-		parseFieldValueData:
-
-		std::unique_ptr<PDFFieldValues> value( new PDFFieldValues );
-		parseFieldsValueData( dict, flags, inherited_props, value );
+		parseFieldsValueData( dict, flags, inherited_props, result );
 	}
 	return 1;
 }

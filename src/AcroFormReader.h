@@ -57,7 +57,7 @@ class AcroFormReader{
 
 		int parseKids( PDFDictionary* dict, PDFProperties inherited_props, std::string base_name, std::vector<std::unique_ptr<PDFFieldValues>>& result );
 
-		int parseField( PDFDictionary* dict, PDFProperties inherited_props, std::string base_name, PDFFieldValues& result );
+		int parseField( PDFDictionary* dict, PDFProperties inherited_props, std::string base_name, std::unique_ptr<PDFFieldValues>& result );
 
 		void parseTextValue				( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result );
 		void parseRichTextFieldValue	( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result );
