@@ -26,5 +26,5 @@ int main( int argc, char** argv ){
 
 	high_resolution_clock::time_point t2 = high_resolution_clock::now();
 	
-	cout << duration_cast<microseconds>(t2 - t1).count() << "us execution-time" << endl;
+	cout <<duration_cast<microseconds>(t2 - t1).count() << "us execution-time" << endl;
 }

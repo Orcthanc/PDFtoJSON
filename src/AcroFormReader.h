@@ -50,19 +50,19 @@ class AcroFormReader{
 			}
 
 		};
-/*
-		void parseFieldsValueData( PDFFieldValues* result, PDFDictionary* dict, int flags, PDFProperties* inherited_props );
-*/
+
+		int parseFieldsValueData( PDFDictionary* dict, int flags, PDFProperties const& inherited_props, std::unique_ptr<PDFFieldValues>& result );
+
 		int parseFieldArray( PDFArray* array, PDFProperties inherited_props, std::string base_name, std::vector<std::unique_ptr<PDFFieldValues>>& result );
 
 		int parseKids( PDFDictionary* dict, PDFProperties inherited_props, std::string base_name, std::vector<std::unique_ptr<PDFFieldValues>>& result );
 
 		int parseField( PDFDictionary* dict, PDFProperties inherited_props, std::string base_name, PDFFieldValues& result );
-/*
-		PDFValue* parseTextValue			( PDFDictionary* dict );
-		PDFValue* parseRichTextFieldValue	( PDFDictionary* dict );
-		PDFValue* parseOnOffValue			( PDFDictionary* dict );
-		PDFValue* parseRadioButtonValue		( PDFDictionary* dict );
-		PDFValue* parseChoiceValue			( PDFDictionary* dict );
-*/
+
+		void parseTextValue				( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result );
+		void parseRichTextFieldValue	( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result );
+		void parseOnOffValue			( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result );
+		void parseRadioButtonValue		( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result );
+		void parseChoiceValue			( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result );
+
 };

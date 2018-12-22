@@ -69,15 +69,15 @@ int AcroFormReader::parseFieldArray( PDFArray* array, PDFProperties inherited_pr
 	for( size_t i = 0; i < array->GetLength(); ++i ){
 		PDFObjectCastPtr<PDFDictionary> element( parser.QueryArrayObject( array, i ));
 		PDFFieldValues* field_value = new PDFFieldValues();
-		int failed_to_insert = parseField( element.GetPtr(), inherited_props, base_name, *field_value );
+		int parsed = parseField( element.GetPtr(), inherited_props, base_name, *field_value );
 
-		if( !failed_to_insert )
+		if( !parsed )
 			result.push_back( unique_ptr<PDFFieldValues>( field_value ));
 		else
 			delete field_value;
 	}
 
-	return 0;
+	return result.size();
 }
 
 
@@ -91,7 +91,7 @@ int AcroFormReader::parseField( PDFDictionary* dict, PDFProperties inherited_pro
 	if( localNameT == "" && 
 			!dict->Exists( "Kids" ) && 
 			safeQueryToString( parser, dict, "Subtype" ) == "Widget" ){
-		return 1;
+		return 0;
 	}
 
 	//TODO check if corrupted variables
@@ -109,12 +109,15 @@ int AcroFormReader::parseField( PDFDictionary* dict, PDFProperties inherited_pro
 			//kids
 			result.kids = move( kids );
 		}else {
-			//parseFieldsValueData();
+			goto parseFieldValueData;
 		}
 	}else {
-		//parseFieldsValueData();
+		parseFieldValueData:
+
+		std::unique_ptr<PDFFieldValues> value( new PDFFieldValues );
+		parseFieldsValueData( dict, flags, inherited_props, value );
 	}
-	return 0;
+	return 1;
 }
 
 
@@ -131,5 +134,63 @@ int AcroFormReader::parseKids( PDFDictionary* dict, PDFProperties inherited_prop
 
 	parseFieldArray( childs.GetPtr(), inherited_props, base_name, result );
 
-	return 0;
+	return 1;
 }
+
+int AcroFormReader::parseFieldsValueData( PDFDictionary* dict, int flags, PDFProperties const& inherited_props, unique_ptr<PDFFieldValues>& result ){
+	string local_field_type = safeQueryToString( parser, dict, "FT" );
+	string field_type = local_field_type == "" ? inherited_props.ft : local_field_type;
+
+	if( field_type == "" )
+		return 0;
+
+
+	if( field_type == "Btn" ){
+		if(( flags >> 16 ) & 1 ){
+			//push-button
+			result->type = unique_ptr<string>( new string( "button" ));
+		}else if(( flags >> 15 ) & 1 ){
+			//radio-button
+			parseRadioButtonValue( dict, result );
+		}else {
+			//checkbox
+			parseOnOffValue( dict, result );
+		}
+	}else if( field_type == "Tx" ){
+		//Text
+		if(( flags>>25 ) & 1) {
+			parseRichTextFieldValue( dict, result );
+		}else {
+			parseTextValue( dict, result );
+		}
+	}else if( field_type == "Ch" ){
+		parseChoiceValue( dict, result );
+	}else if( field_type == "Sig" ){
+		result->type = unique_ptr<string>( new string( "Signature" ));
+	}else {
+		printf( "Found unknown field-type %s.\n", field_type.c_str() );
+	}
+
+	return 1;
+}
+
+void AcroFormReader::parseTextValue( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result ){
+
+}
+
+void AcroFormReader::parseRichTextFieldValue( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result ){
+
+}
+
+void AcroFormReader::parseOnOffValue( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result ){
+
+}
+
+void AcroFormReader::parseRadioButtonValue( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result ){
+
+}
+
+void AcroFormReader::parseChoiceValue( PDFDictionary* dict, std::unique_ptr<PDFFieldValues>& result ){
+
+}
+
