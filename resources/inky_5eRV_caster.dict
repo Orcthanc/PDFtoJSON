@@ -1,0 +1,1298 @@
+#format: name.type=name_in_file
+#types: b = checkbox; s = string
+
+class.s=class
+spell.1.4.used.b=spell1.4
+spell.1.3.used.b=spell1.3
+spell.1.2.used.b=spell1.2
+spell.1.1.used.b=spell1.1
+spell.2.3.used.b=spell2.3
+spell.2.2.used.b=spell2.2
+spell.2.1.used.b=spell2.1
+spell.3.2.used.b=spell3.2
+spell.3.3.used.b=spell3.3
+spell.3.1.used.b=spell3.1
+spell.3.13.conc.b=spell3.13.conc
+spell.3.13.prep.b=spell3.13.prep
+spell.3.13.v.b=spell3.13.V
+spell.3.13.s.b=spell3.13.S
+spell.3.13.m.b=spell3.13.M
+spell.3.12.conc.b=spell3.12.conc
+spell.3.12.prep.b=spell3.12.prep
+spell.3.12.v.b=spell3.12.V
+spell.3.12.s.b=spell3.12.S
+spell.3.12.m.b=spell3.12.M
+spell.3.11.m.b=spell3.11.M
+spell.3.11.s.b=spell3.11.S
+spell.3.11.prep.b=spell3.11.prep
+spell.3.11.v.b=spell3.11.V
+spell.3.11.conc.b=spell3.11.conc
+spell.3.10.m.b=spell3.10.M
+spell.3.10.s.b=spell3.10.S
+spell.3.10.v.b=spell3.10.V
+spell.3.10.conc.b=spell3.10.conc
+spell.3.10.prep.b=spell3.10.prep
+spell.3.9.conc.b=spell3.9.conc
+spell.3.9.prep.b=spell3.9.prep
+spell.3.9.v.b=spell3.9.V
+spell.3.9.m.b=spell3.9.M
+spell.3.9.s.b=spell3.9.S
+spell.3.8.m.b=spell3.8.M
+spell.3.8.s.b=spell3.8.S
+spell.3.8.v.b=spell3.8.V
+spell.3.8.prep.b=spell3.8.prep
+spell.3.8.conc.b=spell3.8.conc
+spell.3.7.conc.b=spell3.7.conc
+spell.3.7.prep.b=spell3.7.prep
+spell.3.7.v.b=spell3.7.V
+spell.3.7.s.b=spell3.7.S
+spell.3.7.m.b=spell3.7.M
+spell.3.6.conc.b=spell3.6.conc
+spell.3.6.prep.b=spell3.6.prep
+spell.3.6.v.b=spell3.6.V
+spell.3.6.s.b=spell3.6.S
+spell.3.6.m.b=spell3.6.M
+spell.3.5.conc.b=spell3.5.conc
+spell.3.5.prep.b=spell3.5.prep
+spell.3.5.v.b=spell3.5.V
+spell.3.5.s.b=spell3.5.S
+spell.3.5.m.b=spell3.5.M
+spell.3.4.v.b=spell3.4.V
+spell.3.4.s.b=spell3.4.S
+spell.3.4.m.b=spell3.4.M
+spell.3.4.prep.b=spell3.4.prep
+spell.3.4.conc.b=spell3.4.conc
+spell.4.1.used.b=spell4.1
+spell.4.2.used.b=spell4.2
+spell.4.3.used.b=spell4.3
+spell.5.1.used.b=spell5.1
+spell.5.2.used.b=spell5.2
+spell.5.3.used.b=spell5.3
+spell.2.amount.s=Spell slots 2
+spell.4.amount.s=Spell slots 4
+spell.3.amount.s=Spell slots 3
+spell.1.amount.s=Spell slots 1
+spell.0.1.name.s=Cantrip1
+spell.0.2.name.s=Cantrip2
+spell.0.3.name.s=Cantrip3
+spell.0.4.name.s=Cantrip4
+spell.0.5.name.s=Cantrip5
+spell.0.6.name.s=Cantrip6
+spell.0.7.name.s=Cantrip7
+spell.0.8.name.s=Cantrip8
+spell.1.13.name.s=Spell1.13
+spell.1.2.name.s=Spell1.2
+spell.1.3.name.s=Spell1.3
+spell.1.4.name.s=Spell1.4
+spell.1.5.name.s=Spell1.5
+spell.1.6.name.s=Spell1.6
+spell.1.7.name.s=Spell1.7
+spell.1.8.name.s=Spell1.8
+spell.1.9.name.s=Spell1.9
+spell.1.10.name.s=Spell1.10
+spell.1.11.name.s=Spell1.11
+spell.1.12.name.s=Spell1.12
+spell.1.1.name.s=Spell1.1
+spell.2.1.name.s=Spell2.1
+spell.2.2.name.s=Spell2.2
+spell.2.3.name.s=Spell2.3
+spell.2.4.name.s=Spell2.4
+spell.2.5.name.s=Spell2.5
+spell.2.6.name.s=Spell2.6
+spell.2.7.name.s=Spell2.7
+spell.2.8.name.s=Spell2.8
+spell.2.9.name.s=Spell2.9
+spell.2.10.name.s=Spell2.10
+spell.2.11.name.s=Spell2.11
+spell.2.12.name.s=Spell2.12
+spell.2.13.name.s=Spell2.13
+spell.3.1.name.s=Spell3.1
+spell.3.2.name.s=Spell3.2
+spell.3.3.name.s=Spell3.3
+spell.3.4.name.s=Spell3.4
+spell.3.5.name.s=Spell3.5
+spell.3.6.name.s=Spell3.6
+spell.3.7.name.s=Spell3.7
+spell.3.8.name.s=Spell3.8
+spell.3.9.name.s=Spell3.9
+spell.3.10.name.s=Spell3.10
+spell.3.11.name.s=Spell3.11
+spell.3.12.name.s=Spell3.12
+spell.3.13.name.s=Spell3.13
+spell.4.1.name.s=Spell4.1
+spell.4.2.name.s=Spell4.2
+spell.4.3.name.s=Spell4.3
+spell.4.4.name.s=Spell4.4
+spell.4.5.name.s=Spell4.5
+spell.4.6.name.s=Spell4.6
+spell.4.7.name.s=Spell4.7
+spell.4.8.name.s=Spell4.8
+spell.4.9.name.s=Spell4.9
+spell.4.10.name.s=Spell4.10
+spell.4.11.name.s=Spell4.11
+spell.4.12.name.s=Spell4.12
+spell.4.13.name.s=Spell4.13
+spell.5.1.name.s=Spell5.1
+spell.5.2.name.s=Spell5.2
+spell.5.3.name.s=Spell5.3
+spell.5.4.name.s=Spell5.4
+spell.5.5.name.s=Spell5.5
+spell.5.6.name.s=Spell5.6
+spell.5.7.name.s=Spell5.7
+spell.5.8.name.s=Spell5.8
+spell.5.9.name.s=Spell5.9
+spell.0.1.m.b=can.1.M
+spell.0.1.s.b=can.1.S
+spell.0.1.v.b=can.1.V
+spell.0.1.conc.b=can.conc.1
+spell.0.2.conc.b=can.conc.2
+spell.0.3.conc.b=can.conc.3
+spell.0.4.conc.b=can.conc.4
+spell.0.5.conc.b=can.conc.5
+spell.0.6.conc.b=can.conc.6
+spell.0.7.conc.b=can.conc.7
+spell.0.8.conc.b=can.conc.8
+spell.0.2.m.b=can.2.M
+spell.0.2.s.b=can.2.S
+spell.0.2.v.b=can.2.V
+spell.0.3.m.b=can.3.M
+spell.0.3.s.b=can.3.S
+spell.0.3.v.b=can.3.V
+spell.0.4.m.b=can.4.M
+spell.0.4.s.b=can.4.S
+spell.0.4.v.b=can.4.V
+spell.0.5.m.b=can.5.M
+spell.0.5.s.b=can.5.S
+spell.0.5.v.b=can.5.V
+spell.0.6.m.b=can.6.M
+spell.0.6.s.b=can.6.S
+spell.0.6.v.b=can.6.V
+spell.0.7.m.b=can.7.M
+spell.0.7.s.b=can.7.S
+spell.0.7.v.b=can.7.V
+spell.0.8.m.b=can.8.M
+spell.0.8.v.b=can.8.V
+spell.0.8.s.b=can.8.S
+spell.1.1.prep.b=1.1.prep
+spell.1.1.m.b=1.1.M
+spell.1.1.conc.b=1.1.conc
+spell.1.1.s.b=1.1.S
+spell.1.1.v.b=1.1.V
+spell.1.2.prep.b=1.2.prep
+spell.1.2.v.b=1.2.V
+spell.1.2.m.b=1.2.M
+spell.1.2.s.b=1.2.S
+spell.1.2.conc.b=1.2.conc
+spell.1.3.prep.b=1.3.prep
+spell.1.3.v.b=1.3.V
+spell.1.3.m.b=1.3.M
+spell.1.3.conc.b=1.3.conc
+spell.1.3.s.b=1.3.S
+spell.1.4.prep.b=1.4.prep
+spell.1.4.v.b=1.4.V
+spell.1.4.conc.b=1.4.conc
+spell.1.4.m.b=1.4.M
+spell.1.4.s.b=1.4.S
+spell.1.5.prep.b=1.5.prep
+spell.1.5.m.b=1.5.M
+spell.1.5.conc.b=1.5.conc
+spell.1.5.v.b=1.5.V
+spell.1.5.s.b=1.5.S
+spell.1.6.prep.b=1.6.prep
+spell.1.6.m.b=1.6.M
+spell.1.6.conc.b=1.6.conc
+spell.1.6.v.b=1.6.V
+spell.1.6.s.b=1.6.S
+spell.1.7.prep.b=1.7.prep
+spell.1.7.m.b=1.7.M
+spell.1.7.conc.b=1.7.conc
+spell.1.7.v.b=1.7.V
+spell.1.7.s.b=1.7.S
+spell.1.8.prep.b=1.8.prep
+spell.1.8.m.b=1.8.M
+spell.1.8.conc.b=1.8.conc
+spell.1.8.v.b=1.8.V
+spell.1.8.s.b=1.8.S
+spell.1.9.prep.b=1.9.prep
+spell.1.9.m.b=1.9.M
+spell.1.9.conc.b=1.9.conc
+spell.1.9.v.b=1.9.V
+spell.1.9.s.b=1.9.S
+spell.1.10.prep.b=1.10.prep
+spell.1.10.m.b=1.10.M
+spell.1.10.conc.b=1.10.conc
+spell.1.10.v.b=1.10.V
+spell.1.10.s.b=1.10.S
+spell.1.11.prep.b=1.11.prep
+spell.1.11.m.b=1.11.M
+spell.1.11.conc.b=1.11.conc
+spell.1.11.v.b=1.11.V
+spell.1.11.s.b=1.11.S
+spell.1.12.prep.b=1.12.prep
+spell.1.12.m.b=1.12.M
+spell.1.12.conc.b=1.12.conc
+spell.1.12.v.b=1.12.V
+spell.1.12.s.b=1.12.S
+spell.1.13.prep.b=1.13.prep
+spell.1.13.m.b=1.13.M
+spell.1.13.conc.b=1.13.conc
+spell.1.13.v.b=1.13.V
+spell.1.13.s.b=1.13.S
+spell.2.1.m.b=2.1.M
+spell.2.1.s.b=2.1.S
+spell.2.1.v.b=2.1.V
+spell.2.1.prep.b=2.1.prep
+spell.2.1.conc.b=2.1.conc
+spell.2.2.m.b=2.2.M
+spell.2.2.s.b=2.2.S
+spell.2.2.v.b=2.2.V
+spell.2.2.prep.b=2.2.prep
+spell.2.2.conc.b=2.2.conc
+spell.2.3.m.b=2.3.M
+spell.2.3.s.b=2.3.S
+spell.2.3.v.b=2.3.V
+spell.2.3.prep.b=2.3.prep
+spell.2.3.conc.b=2.3.conc
+spell.2.4.m.b=2.4.M
+spell.2.4.s.b=2.4.S
+spell.2.4.v.b=2.4.V
+spell.2.4.prep.b=2.4.prep
+spell.2.4.conc.b=2.4.conc
+spell.2.5.m.b=2.5.M
+spell.2.5.s.b=2.5.S
+spell.2.5.v.b=2.5.V
+spell.2.5.prep.b=2.5.prep
+spell.2.5.conc.b=2.5.conc
+spell.2.6.prep.b=2.6.prep
+spell.2.6.conc.b=2.6.conc
+spell.2.6.m.b=2.6.M
+spell.2.6.v.b=2.6.V
+spell.2.6.s.b=2.6.S
+spell.2.7.m.b=2.7.M
+spell.2.7.s.b=2.7.S
+spell.2.7.v.b=2.7.V
+spell.2.7.prep.b=2.7.prep
+spell.2.7.conc.b=2.7.conc
+spell.2.8.m.b=2.8.M
+spell.2.8.s.b=2.8.S
+spell.2.8.v.b=2.8.V
+spell.2.8.prep.b=2.8.prep
+spell.2.8.conc.b=2.8.conc
+spell.2.9.m.b=2.9.M
+spell.2.9.s.b=2.9.S
+spell.2.9.v.b=2.9.V
+spell.2.9.prep.b=2.9.prep
+spell.2.9.conc.b=2.9.conc
+spell.2.10.m.b=2.10.M
+spell.2.10.s.b=2.10.S
+spell.2.10.v.b=2.10.V
+spell.2.10.prep.b=2.10.prep
+spell.2.10.conc.b=2.10.conc
+spell.2.11.m.b=2.11.M
+spell.2.11.s.b=2.11.S
+spell.2.11.v.b=2.11.V
+spell.2.11.prep.b=2.11.prep
+spell.2.11.conc.b=2.11.conc
+spell.2.12.m.b=2.12.M
+spell.2.12.s.b=2.12.S
+spell.2.12.v.b=2.12.V
+spell.2.12.prep.b=2.12.prep
+spell.2.12.conc.b=2.12.conc
+spell.2.13.m.b=2.13.M
+spell.2.13.s.b=2.13.S
+spell.2.13.v.b=2.13.V
+spell.2.13.prep.b=2.13.prep
+spell.2.13.conc.b=2.13.conc
+spell.3.1.M.b=M.3.1
+spell.3.3.M.b=M.3.3
+spell.3.2.M.b=M.3.2
+spell.4.1.M.b=M.4.1
+spell.4.2.M.b=M.4.2
+spell.4.3.M.b=M.4.3
+spell.4.4.M.b=M.4.4
+spell.4.5.M.b=M.4.5
+spell.4.6.M.b=M.4.6
+spell.4.7.M.b=M.4.7
+spell.4.8.M.b=M.4.8
+spell.4.9.M.b=M.4.9
+spell.4.10.M.b=M.4.10
+spell.4.11.M.b=M.4.11
+spell.4.12.M.b=M.4.12
+spell.4.13.M.b=M.4.13
+spell.5.2.M.b=M.5.2
+spell.5.3.M.b=M.5.3
+spell.5.4.M.b=M.5.4
+spell.5.5.M.b=M.5.5
+spell.5.6.M.b=M.5.6
+spell.5.8.M.b=M.5.8
+spell.5.7.M.b=M.5.7
+spell.5.9.M.b=M.5.9
+spell.5.1.M.b=M.5.1
+spell.6.1.M.b=M.6.1
+spell.6.2.M.b=M.6.2
+spell.6.3.M.b=M.6.3
+spell.6.4.M.b=M.6.4
+spell.6.5.M.b=M.6.5
+spell.6.6.M.b=M.6.6
+spell.6.7.M.b=M.6.7
+spell.6.8.M.b=M.6.8
+spell.6.10.M.b=M.6.10
+spell.6.9.M.b=M.6.9
+spell.7.1.M.b=M.7.1
+spell.7.2.M.b=M.7.2
+spell.7.3.M.b=M.7.3
+spell.7.4.M.b=M.7.4
+spell.7.5.M.b=M.7.5
+spell.7.6.M.b=M.7.6
+spell.7.7.M.b=M.7.7
+spell.7.8.M.b=M.7.8
+spell.7.9.M.b=M.7.9
+spell.7.10.M.b=M.7.10
+spell.8.2.M.b=M.8.2
+spell.8.3.M.b=M.8.3
+spell.8.4.M.b=M.8.4
+spell.8.5.M.b=M.8.5
+spell.8.6.M.b=M.8.6
+spell.8.7.M.b=M.8.7
+spell.8.8.M.b=M.8.8
+spell.8.9.M.b=M.8.9
+spell.8.10.M.b=M.8.10
+spell.8.1.M.b=M.8.1
+spell.9.1.M.b=M.9.1
+spell.9.2.M.b=M.9.2
+spell.9.3.M.b=M.9.3
+spell.9.4.M.b=M.9.4
+spell.9.5.M.b=M.9.5
+spell.9.6.M.b=M.9.6
+spell.9.7.M.b=M.9.7
+spell.9.8.M.b=M.9.8
+spell.9.9.M.b=M.9.9
+spell.9.10.M.b=M.9.10
+spell.3.1.S.b=S.3.1
+spell.3.3.S.b=S.3.3
+spell.3.2.S.b=S.3.2
+spell.4.1.S.b=S.4.1
+spell.4.2.S.b=S.4.2
+spell.4.3.S.b=S.4.3
+spell.4.4.S.b=S.4.4
+spell.4.5.S.b=S.4.5
+spell.4.6.S.b=S.4.6
+spell.4.7.S.b=S.4.7
+spell.4.8.S.b=S.4.8
+spell.4.9.S.b=S.4.9
+spell.4.10.S.b=S.4.10
+spell.4.11.S.b=S.4.11
+spell.4.12.S.b=S.4.12
+spell.4.13.S.b=S.4.13
+spell.5.2.S.b=S.5.2
+spell.5.3.S.b=S.5.3
+spell.5.4.S.b=S.5.4
+spell.5.5.S.b=S.5.5
+spell.5.6.S.b=S.5.6
+spell.5.8.S.b=S.5.8
+spell.5.7.S.b=S.5.7
+spell.5.9.S.b=S.5.9
+spell.5.1.S.b=S.5.1
+spell.6.1.S.b=S.6.1
+spell.6.2.S.b=S.6.2
+spell.6.3.S.b=S.6.3
+spell.6.4.S.b=S.6.4
+spell.6.5.S.b=S.6.5
+spell.6.6.S.b=S.6.6
+spell.6.7.S.b=S.6.7
+spell.6.8.S.b=S.6.8
+spell.6.10.S.b=S.6.10
+spell.6.9.S.b=S.6.9
+spell.7.1.S.b=S.7.1
+spell.7.2.S.b=S.7.2
+spell.7.3.S.b=S.7.3
+spell.7.4.S.b=S.7.4
+spell.7.5.S.b=S.7.5
+spell.7.6.S.b=S.7.6
+spell.7.7.S.b=S.7.7
+spell.7.8.S.b=S.7.8
+spell.7.9.S.b=S.7.9
+spell.7.10.S.b=S.7.10
+spell.8.2.S.b=S.8.2
+spell.8.3.S.b=S.8.3
+spell.8.4.S.b=S.8.4
+spell.8.5.S.b=S.8.5
+spell.8.6.S.b=S.8.6
+spell.8.7.S.b=S.8.7
+spell.8.8.S.b=S.8.8
+spell.8.9.S.b=S.8.9
+spell.8.10.S.b=S.8.10
+spell.8.1.S.b=S.8.1
+spell.9.1.S.b=S.9.1
+spell.9.2.S.b=S.9.2
+spell.9.3.S.b=S.9.3
+spell.9.4.S.b=S.9.4
+spell.9.5.S.b=S.9.5
+spell.9.6.S.b=S.9.6
+spell.9.7.S.b=S.9.7
+spell.9.8.S.b=S.9.8
+spell.9.9.S.b=S.9.9
+spell.9.10.S.b=S.9.10
+spell.3.1.V.b=V.3.1
+spell.3.3.V.b=V.3.3
+spell.3.2.V.b=V.3.2
+spell.4.1.V.b=V.4.1
+spell.4.2.V.b=V.4.2
+spell.4.3.V.b=V.4.3
+spell.4.4.V.b=V.4.4
+spell.4.5.V.b=V.4.5
+spell.4.6.V.b=V.4.6
+spell.4.7.V.b=V.4.7
+spell.4.8.V.b=V.4.8
+spell.4.9.V.b=V.4.9
+spell.4.10.V.b=V.4.10
+spell.4.11.V.b=V.4.11
+spell.4.12.V.b=V.4.12
+spell.4.13.V.b=V.4.13
+spell.5.2.V.b=V.5.2
+spell.5.3.V.b=V.5.3
+spell.5.4.V.b=V.5.4
+spell.5.5.V.b=V.5.5
+spell.5.6.V.b=V.5.6
+spell.5.8.V.b=V.5.8
+spell.5.7.V.b=V.5.7
+spell.5.9.V.b=V.5.9
+spell.5.1.V.b=V.5.1
+spell.6.1.V.b=V.6.1
+spell.6.2.V.b=V.6.2
+spell.6.3.V.b=V.6.3
+spell.6.4.V.b=V.6.4
+spell.6.5.V.b=V.6.5
+spell.6.6.V.b=V.6.6
+spell.6.7.V.b=V.6.7
+spell.6.8.V.b=V.6.8
+spell.6.10.V.b=V.6.10
+spell.6.9.V.b=V.6.9
+spell.7.1.V.b=V.7.1
+spell.7.2.V.b=V.7.2
+spell.7.3.V.b=V.7.3
+spell.7.4.V.b=V.7.4
+spell.7.5.V.b=V.7.5
+spell.7.6.V.b=V.7.6
+spell.7.7.V.b=V.7.7
+spell.7.8.V.b=V.7.8
+spell.7.9.V.b=V.7.9
+spell.7.10.V.b=V.7.10
+spell.8.2.V.b=V.8.2
+spell.8.3.V.b=V.8.3
+spell.8.4.V.b=V.8.4
+spell.8.5.V.b=V.8.5
+spell.8.6.V.b=V.8.6
+spell.8.7.V.b=V.8.7
+spell.8.8.V.b=V.8.8
+spell.8.9.V.b=V.8.9
+spell.8.10.V.b=V.8.10
+spell.8.1.V.b=V.8.1
+spell.9.1.V.b=V.9.1
+spell.9.2.V.b=V.9.2
+spell.9.3.V.b=V.9.3
+spell.9.4.V.b=V.9.4
+spell.9.5.V.b=V.9.5
+spell.9.6.V.b=V.9.6
+spell.9.7.V.b=V.9.7
+spell.9.8.V.b=V.9.8
+spell.9.9.V.b=V.9.9
+spell.9.10.V.b=V.9.10
+spell.3.1.prep.b=prep.3.1
+spell.3.3.prep.b=prep.3.3
+spell.3.2.prep.b=prep.3.2
+spell.4.1.prep.b=prep.4.1
+spell.4.2.prep.b=prep.4.2
+spell.4.3.prep.b=prep.4.3
+spell.4.4.prep.b=prep.4.4
+spell.4.5.prep.b=prep.4.5
+spell.4.6.prep.b=prep.4.6
+spell.4.7.prep.b=prep.4.7
+spell.4.8.prep.b=prep.4.8
+spell.4.9.prep.b=prep.4.9
+spell.4.10.prep.b=prep.4.10
+spell.4.11.prep.b=prep.4.11
+spell.4.12.prep.b=prep.4.12
+spell.4.13.prep.b=prep.4.13
+spell.5.2.prep.b=prep.5.2
+spell.5.3.prep.b=prep.5.3
+spell.5.4.prep.b=prep.5.4
+spell.5.5.prep.b=prep.5.5
+spell.5.6.prep.b=prep.5.6
+spell.5.8.prep.b=prep.5.8
+spell.5.7.prep.b=prep.5.7
+spell.5.9.prep.b=prep.5.9
+spell.5.1.prep.b=prep.5.1
+spell.6.1.prep.b=prep.6.1
+spell.6.2.prep.b=prep.6.2
+spell.6.3.prep.b=prep.6.3
+spell.6.4.prep.b=prep.6.4
+spell.6.5.prep.b=prep.6.5
+spell.6.6.prep.b=prep.6.6
+spell.6.7.prep.b=prep.6.7
+spell.6.8.prep.b=prep.6.8
+spell.6.10.prep.b=prep.6.10
+spell.6.9.prep.b=prep.6.9
+spell.7.1.prep.b=prep.7.1
+spell.7.2.prep.b=prep.7.2
+spell.7.3.prep.b=prep.7.3
+spell.7.4.prep.b=prep.7.4
+spell.7.5.prep.b=prep.7.5
+spell.7.6.prep.b=prep.7.6
+spell.7.7.prep.b=prep.7.7
+spell.7.8.prep.b=prep.7.8
+spell.7.9.prep.b=prep.7.9
+spell.7.10.prep.b=prep.7.10
+spell.8.2.prep.b=prep.8.2
+spell.8.3.prep.b=prep.8.3
+spell.8.4.prep.b=prep.8.4
+spell.8.5.prep.b=prep.8.5
+spell.8.6.prep.b=prep.8.6
+spell.8.7.prep.b=prep.8.7
+spell.8.8.prep.b=prep.8.8
+spell.8.9.prep.b=prep.8.9
+spell.8.10.prep.b=prep.8.10
+spell.8.1.prep.b=prep.8.1
+spell.9.1.prep.b=prep.9.1
+spell.9.2.prep.b=prep.9.2
+spell.9.3.prep.b=prep.9.3
+spell.9.4.prep.b=prep.9.4
+spell.9.5.prep.b=prep.9.5
+spell.9.6.prep.b=prep.9.6
+spell.9.7.prep.b=prep.9.7
+spell.9.8.prep.b=prep.9.8
+spell.9.9.prep.b=prep.9.9
+spell.9.10.prep.b=prep.9.10
+spell.3.3.conc.b=conc.3.3
+spell.3.2.conc.b=conc.3.2
+spell.3.1.conc.b=conc.3.1
+spell.4.1.conc.b=conc.4.1
+spell.4.2.conc.b=conc.4.2
+spell.4.3.conc.b=conc.4.3
+spell.4.4.conc.b=conc.4.4
+spell.4.5.conc.b=conc.4.5
+spell.4.6.conc.b=conc.4.6
+spell.4.7.conc.b=conc.4.7
+spell.4.8.conc.b=conc.4.8
+spell.4.9.conc.b=conc.4.9
+spell.4.10.conc.b=conc.4.10
+spell.4.11.conc.b=conc.4.11
+spell.4.12.conc.b=conc.4.12
+spell.4.13.conc.b=conc.4.13
+spell.5.2.conc.b=conc.5.2
+spell.5.3.conc.b=conc.5.3
+spell.5.4.conc.b=conc.5.4
+spell.5.5.conc.b=conc.5.5
+spell.5.6.conc.b=conc.5.6
+spell.5.8.conc.b=conc.5.8
+spell.5.7.conc.b=conc.5.7
+spell.5.9.conc.b=conc.5.9
+spell.5.1.conc.b=conc.5.1
+spell.6.1.conc.b=conc.6.1
+spell.6.2.conc.b=conc.6.2
+spell.6.3.conc.b=conc.6.3
+spell.6.4.conc.b=conc.6.4
+spell.6.5.conc.b=conc.6.5
+spell.6.6.conc.b=conc.6.6
+spell.6.7.conc.b=conc.6.7
+spell.6.8.conc.b=conc.6.8
+spell.6.10.conc.b=conc.6.10
+spell.6.9.conc.b=conc.6.9
+spell.7.1.conc.b=conc.7.1
+spell.7.2.conc.b=conc.7.2
+spell.7.3.conc.b=conc.7.3
+spell.7.4.conc.b=conc.7.4
+spell.7.5.conc.b=conc.7.5
+spell.7.6.conc.b=conc.7.6
+spell.7.7.conc.b=conc.7.7
+spell.7.8.conc.b=conc.7.8
+spell.7.9.conc.b=conc.7.9
+spell.7.10.conc.b=conc.7.10
+spell.8.2.conc.b=conc.8.2
+spell.8.3.conc.b=conc.8.3
+spell.8.4.conc.b=conc.8.4
+spell.8.5.conc.b=conc.8.5
+spell.8.6.conc.b=conc.8.6
+spell.8.7.conc.b=conc.8.7
+spell.8.8.conc.b=conc.8.8
+spell.8.9.conc.b=conc.8.9
+spell.8.10.conc.b=conc.8.10
+spell.8.1.conc.b=conc.8.1
+spell.9.1.conc.b=conc.9.1
+spell.9.2.conc.b=conc.9.2
+spell.9.3.conc.b=conc.9.3
+spell.9.4.conc.b=conc.9.4
+spell.9.5.conc.b=conc.9.5
+spell.9.6.conc.b=conc.9.6
+spell.9.7.conc.b=conc.9.7
+spell.9.8.conc.b=conc.9.8
+spell.9.9.conc.b=conc.9.9
+spell.9.10.conc.b=conc.9.10
+spell.5.amount.s=Spell slots 5
+spell.6.1.used.b=spell6.1
+spell.6.2.used.b=spell6.2
+spell.6.amount.s=Spell slots 6
+spell.7.1.used.b=spell7.1
+spell.7.2.used.b=spell7.2
+spell.8.1.used.b=spell8.1
+spell.8.amount.s=Spell slots 8
+spell.9.amount.s=Spell slots 9
+spell.9.1.used.b=spell9.1
+spell.7.amount.s=Spell slots 7
+spell.6.2.name.s=Spell6.2
+spell.6.3.name.s=Spell6.3
+spell.6.4.name.s=Spell6.4
+spell.6.5.name.s=Spell6.5
+spell.6.6.name.s=Spell6.6
+spell.6.7.name.s=Spell6.7
+spell.6.8.name.s=Spell6.8
+spell.6.9.name.s=Spell6.9
+spell.6.10.name.s=Spell6.10
+spell.6.1.name.s=Spell6.1
+spell.7.2.name.s=Spell7.2
+spell.7.3.name.s=Spell7.3
+spell.7.4.name.s=Spell7.4
+spell.7.5.name.s=Spell7.5
+spell.7.6.name.s=Spell7.6
+spell.7.7.name.s=Spell7.7
+spell.7.8.name.s=Spell7.8
+spell.7.9.name.s=Spell7.9
+spell.7.1.name.s=Spell7.1
+spell.7.10.name.s=Spell7.10
+spell.9.1.name.s=Spell9.1
+spell.9.2.name.s=Spell9.2
+spell.9.3.name.s=Spell9.3
+spell.9.4.name.s=Spell9.4
+spell.9.5.name.s=Spell9.5
+spell.9.6.name.s=Spell9.6
+spell.9.7.name.s=Spell9.7
+spell.9.8.name.s=Spell9.8
+spell.9.9.name.s=Spell9.9
+spell.9.10.name.s=Spell9.10
+spell.8.1.name.s=Spell8.1
+spell.8.2.name.s=Spell8.2
+spell.8.3.name.s=Spell8.3
+spell.8.4.name.s=Spell8.4
+spell.8.5.name.s=Spell8.5
+spell.8.6.name.s=Spell8.6
+spell.8.7.name.s=Spell8.7
+spell.8.8.name.s=Spell8.8
+spell.8.9.name.s=Spell8.9
+spell.8.10.name.s=Spell8.10
+magic.item.1.0: checkbox:		Off
+magic.item.1.1: checkbox:		Off
+magic.item.1.2: checkbox:		Off
+magic.item.2.0: checkbox:		Off
+magic.item.2.1: checkbox:		Off
+magic.item.2.2: checkbox:		Off
+magic.item.3.0: checkbox:		Off
+magic.item.3.1: checkbox:		Off
+magic.item.3.2: checkbox:		Off
+magic.item.4.0: checkbox:		Off
+magic.item.4.1: checkbox:		Off
+magic.item.4.2: checkbox:		Off
+magic.item.5.0: checkbox:		Off
+magic.item.5.1: checkbox:		Off
+magic.item.5.2: checkbox:		Off
+magic.item.6.0: checkbox:		Off
+magic.item.6.1: checkbox:		Off
+magic.item.6.2: checkbox:		Off
+magic.item.7.0: checkbox:		Off
+magic.item.7.1: checkbox:		Off
+magic.item.7.2: checkbox:		Off
+magic.item.8.0: checkbox:		Off
+magic.item.8.1: checkbox:		Off
+magic.item.8.2: checkbox:		Off
+magic.item.9.0: checkbox:		Off
+magic.item.9.1: checkbox:		Off
+magic.item.9.2: checkbox:		Off
+magic.item.10.0: checkbox:		Off
+magic.item.10.1: checkbox:		Off
+magic.item.10.2: checkbox:		Off
+magic.item.11.0: checkbox:		Off
+magic.item.11.1: checkbox:		Off
+magic.item.11.2: checkbox:		Off
+magic.item.12.0: checkbox:		Off
+magic.item.12.1: checkbox:		Off
+magic.item.12.2: checkbox:		Off
+magic.item.13.0: checkbox:		Off
+magic.item.13.1: checkbox:		Off
+magic.item.13.2: checkbox:		Off
+magic.item.14.0: checkbox:		Off
+magic.item.14.1: checkbox:		Off
+magic.item.14.2: checkbox:		Off
+magic.item.28.0: checkbox:		Off
+magic.item.28.1: checkbox:		Off
+magic.item.28.2: checkbox:		Off
+magic.item.27.0: checkbox:		Off
+magic.item.27.1: checkbox:		Off
+magic.item.27.2: checkbox:		Off
+magic.item.26.0: checkbox:		Off
+magic.item.26.1: checkbox:		Off
+magic.item.26.2: checkbox:		Off
+magic.item.25.0: checkbox:		Off
+magic.item.25.1: checkbox:		Off
+magic.item.25.2: checkbox:		Off
+magic.item.24.0: checkbox:		Off
+magic.item.24.1: checkbox:		Off
+magic.item.24.2: checkbox:		Off
+magic.item.23.0: checkbox:		Off
+magic.item.23.1: checkbox:		Off
+magic.item.23.2: checkbox:		Off
+magic.item.22.0: checkbox:		Off
+magic.item.22.1: checkbox:		Off
+magic.item.22.2: checkbox:		Off
+magic.item.21.0: checkbox:		Off
+magic.item.21.1: checkbox:		Off
+magic.item.21.2: checkbox:		Off
+magic.item.20.0: checkbox:		Off
+magic.item.20.1: checkbox:		Off
+magic.item.20.2: checkbox:		Off
+magic.item.19.0: checkbox:		Off
+magic.item.19.1: checkbox:		Off
+magic.item.19.2: checkbox:		Off
+magic.item.18.0: checkbox:		Off
+magic.item.18.1: checkbox:		Off
+magic.item.18.2: checkbox:		Off
+magic.item.17.0: checkbox:		Off
+magic.item.17.1: checkbox:		Off
+magic.item.17.2: checkbox:		Off
+magic.item.16.0: checkbox:		Off
+magic.item.16.1: checkbox:		Off
+magic.item.16.2: checkbox:		Off
+magic.item.15.0: checkbox:		Off
+magic.item.15.1: checkbox:		Off
+magic.item.15.2: checkbox:		Off
+magic.item.text.0: plaintext:		MagItem1
+magic.item.text.1: plaintext:		MagItem2
+magic.item.text.2: plaintext:		MagItem3
+magic.item.text.3: plaintext:		MagItem4
+magic.item.text.4: plaintext:		MagItem5
+magic.item.text.5: plaintext:		MagItem6
+magic.item.text.6: plaintext:		MagItem7
+magic.item.text.7: plaintext:		MagItem8
+magic.item.text.8: plaintext:		MagItem9
+magic.item.text.9: plaintext:		MagItem10
+magic.item.text.10: plaintext:		MagItem11
+magic.item.text.11: plaintext:		MagItem12
+magic.item.text.12: plaintext:		MagItem13
+magic.item.text.13: plaintext:		MagItem14
+magic.item.text.15.0: plaintext:		MagItem15
+magic.item.text.16: plaintext:		MagItem16
+magic.item.text.17: plaintext:		MagItem17
+magic.item.text.18: plaintext:		MagItem18
+magic.item.text.19: plaintext:		MagItem19
+magic.item.text.20: plaintext:		MagItem20
+magic.item.text.21: plaintext:		MagItem21
+magic.item.text.22: plaintext:		MagItem22
+magic.item.text.23: plaintext:		MagItem23
+magic.item.text.24: plaintext:		MagItem24
+magic.item.text.25: plaintext:		MagItem25
+magic.item.text.26: plaintext:		MagItem26
+magic.item.text.27: plaintext:		MagItem27
+magic.item.text.28: plaintext:		MagItem28
+run: plaintext:		RUN
+climb: plaintext:		CLIMB
+swim: plaintext:		SWIM
+fly: plaintext:		FLY
+comp.item.0.0: plaintext:		I have no clue
+comp.item.0.1: plaintext:		
+comp.item.0.2: plaintext:		
+comp.item.1.1: plaintext:		
+comp.item.1.2: plaintext:		
+comp.item.2.1: plaintext:		
+comp.item.2.2: plaintext:		
+comp.item.3.1: plaintext:		
+comp.item.3.2: plaintext:		
+comp.item.4.1: plaintext:		
+comp.item.4.2: plaintext:		
+comp.item.5.2: plaintext:		
+comp.item.5.1: plaintext:		
+comp.item.6.2: plaintext:		
+comp.item.6.1: plaintext:		
+comp.item.weight.0.1: plaintext:		
+comp.item.weight.0.2: plaintext:		
+comp.item.weight.1.1: plaintext:		
+comp.item.weight.1.2: plaintext:		
+comp.item.weight.2.1: plaintext:		
+comp.item.weight.2.2: plaintext:		
+comp.item.weight.3.1: plaintext:		
+comp.item.weight.3.2: plaintext:		
+comp.item.weight.4.1: plaintext:		
+comp.item.weight.4.2: plaintext:		
+comp.item.weight.5.1: plaintext:		
+comp.item.weight.5.2: plaintext:		
+comp.item.weight.6.2: plaintext:		
+comp.item.weight.6.1: plaintext:		
+comp.item.weight.7.1: plaintext:		
+comp.item.7.1: plaintext:		
+comp.run: plaintext:		CRUN
+comp.climb: plaintext:		CCLIMB
+comp.swim: plaintext:		CSWIM
+comp.fly: plaintext:		CFLY
+comp.darkvision: plaintext:		CDV
+comp.Cantrip 2 Concentration: checkbox:		Off
+comp.Cantrip 3 Concentration: checkbox:		Off
+comp.Cantrip 1 Concentration: checkbox:		Off
+comp.Cantrip 4 Concentration: checkbox:		Off
+comp.Cantrip 5 Concentration: checkbox:		Off
+comp.Cantrip 6 Concentration: checkbox:		Off
+comp.cantrip.1: plaintext:		
+comp.cantrip.2: plaintext:		
+comp.cantrip.3: plaintext:		
+comp.cantrip.4: plaintext:		
+comp.cantrip.5: plaintext:		
+comp.cantrip.6: plaintext:		
+comp.cantrip.detail.6: plaintext:		
+comp.cantrip.detail.5: plaintext:		
+comp.cantrip.detail.4: plaintext:		
+comp.cantrip.detail.3: plaintext:		
+comp.cantrip.detail.2: plaintext:		
+comp.cantrip.detail.1: plaintext:		
+comp.cant.1.s: checkbox:		Off
+comp.cant.1.v: checkbox:		Off
+comp.cant.1.m: checkbox:		Off
+comp.cant.2.s: checkbox:		Off
+comp.cant.2.v: checkbox:		Off
+comp.cant.2.m: checkbox:		Off
+comp.cant.3.s: checkbox:		Off
+comp.cant.3.v: checkbox:		Off
+comp.cant.3.m: checkbox:		Off
+comp.cant.4.s: checkbox:		Off
+comp.cant.4.v: checkbox:		Off
+comp.cant.4.m: checkbox:		Off
+comp.cant.5.s: checkbox:		Off
+comp.cant.5.v: checkbox:		Off
+comp.cant.5.m: checkbox:		Off
+comp.cant.6.s: checkbox:		Off
+comp.cant.6.v: checkbox:		Off
+comp.cant.6.m: checkbox:		Off
+comp.points.name: plaintext:		CSORCPOINTS
+comp.points.total: plaintext:		CSORCPT
+comp.points.used: plaintext:		CSORCPU
+spell.slot.1.total: plaintext:		S1T
+spell.slot.1.used: plaintext:		S1U
+spell.slot.2.total: plaintext:		S2T
+spell.slot.2.used: plaintext:		S2U
+spell.slot.3.total: plaintext:		S3T
+spell.slot.3.used: plaintext:		S3U
+spell.slot.4.total: plaintext:		S4T
+spell.slot.4.used: plaintext:		S4U
+spell.slot.8.total: plaintext:		S8T
+spell.slot.8.used: plaintext:		S8U
+spell.slot.9.total: plaintext:		S9T
+spell.slot.5.used: plaintext:		S5U
+spell.slot.5.total: plaintext:		S5T
+spell.slot.6.used: plaintext:		S6U
+spell.slot.6.total: plaintext:		S6T
+spell.slot.7.used: plaintext:		S7U
+spell.slot.7.total: plaintext:		S7T
+pp: plaintext:		PP
+gp: plaintext:		GP
+ep: plaintext:		EP
+sp: plaintext:		SP
+cp: plaintext:		CP
+carrying.capacity: plaintext:		TW
+weap.1.name: plaintext:		Weapon1
+weap.1.atk: plaintext:		At1
+weap.1.dmg: plaintext:		DMG1
+weap.1.s: checkbox:		On
+weap.1.p: checkbox:		Off
+weap.1.b: checkbox:		Off
+weap.2.name: plaintext:		Weapon2
+weap.2.atk: plaintext:		At2
+weap.2.dmg: plaintext:		DMG2
+weap.2.s: checkbox:		Off
+weap.2.b: checkbox:		Off
+weap.2.p: checkbox:		On
+weap.3.name: plaintext:		Weapon3
+weap.3.atk: plaintext:		At3
+weap.3.dmg: plaintext:		DMG3
+weap.3.s: checkbox:		Off
+weap.3.p: checkbox:		Off
+weap.3.b: checkbox:		On
+weap.4.atk: plaintext:		At4
+weap.4.s: checkbox:		On
+weap.4.b: checkbox:		Off
+weap.4.p: checkbox:		Off
+weap.4.dmg: plaintext:		DMG4
+weap.4.name: plaintext:		Weapon4
+weap.5.name: plaintext:		Weapon5
+weap.5.s: checkbox:		Off
+weap.5.b: checkbox:		Off
+weap.5.p: checkbox:		On
+weap.5 atk: plaintext:		At5
+weap.5 dmg: plaintext:		DMG5
+ammo1_name: plaintext:		Ammo1
+ammo.1.total: plaintext:		A1T
+ammo.1.used: plaintext:		A1U
+ammo.2.total: plaintext:		A2T
+ammo.2.used: plaintext:		A2U
+ammo.3.total: plaintext:		A3T
+ammo.3.used: plaintext:		A3U
+ammo.4.total: plaintext:		A4T
+ammo.4.used: plaintext:		A4U
+head: plaintext:		Helm
+neck: plaintext:		Neck
+armor: plaintext:		Chest
+gloves: plaintext:		Gauntlet
+back: plaintext:		Cloak
+ring.1: plaintext:		Ring1
+ring.2: plaintext:		Ring2
+belt: plaintext:		Belt
+backpack.1.0.0: plaintext:		Item1
+backpack.1.0.1: plaintext:		Item8
+backpack.1.1.0: plaintext:		Item2
+backpack.1.1.1: plaintext:		Item9
+backpack.1.2.0: plaintext:		Item3
+backpack.1.2.1: plaintext:		Item10
+backpack.1.3.0: plaintext:		Item4
+backpack.1.3.1: plaintext:		Item11
+backpack.1.4.0: plaintext:		Item5
+backpack.1.4.1: plaintext:		Item12
+backpack.1.5.0: plaintext:		Item6
+backpack.1.5.1: plaintext:		Item13
+backpack.1.6.0: plaintext:		Item7
+backpack.1.6.1: plaintext:		Item14
+backpack.wt.1.0.0: plaintext:		W1
+backpack.wt.1.0.1: plaintext:		W8
+backpack.wt.1.1.0: plaintext:		W2
+backpack.wt.1.1.1: plaintext:		W9
+backpack.wt.1.2.0: plaintext:		W3
+backpack.wt.1.2.1: plaintext:		W10
+backpack.wt.1.3.0: plaintext:		W4
+backpack.wt.1.3.1: plaintext:		W11
+backpack.wt.1.4.0: plaintext:		W5
+backpack.wt.1.4.1: plaintext:		W12
+backpack.wt.1.5.0: plaintext:		W6
+backpack.wt.1.5.1: plaintext:		W13
+backpack.wt.1.6.0: plaintext:		W7
+backpack.wt.1.6.1: plaintext:		W14
+cantrip.detail.1: plaintext:		Can1DMG
+cantrip.detail.2: plaintext:		Can2DMG
+cantrip.detail.3: plaintext:		Can3DMG
+cantrip.detail.4: plaintext:		Can4DMG
+cantrip.detail.5: plaintext:		Can5DMG
+cantrip.detail.6: plaintext:		Can6DMG
+cantrip.1: plaintext:		Can1
+cantrip.2: plaintext:		Can2
+cantrip.3: plaintext:		Can3
+cantrip.4: plaintext:		Can4
+cantrip.5: plaintext:		Can5
+cantrip.6: plaintext:		Can6
+cant.1.s: checkbox:		Off
+cant.1.v: checkbox:		Off
+cant.1.m: checkbox:		Off
+cant.2.s: checkbox:		Off
+cant.2.v: checkbox:		Off
+cant.2.m: checkbox:		Off
+cant.3.s: checkbox:		Off
+cant.3.v: checkbox:		Off
+cant.3.m: checkbox:		Off
+cant.4.s: checkbox:		Off
+cant.4.v: checkbox:		Off
+cant.4.m: checkbox:		Off
+cant.5.s: checkbox:		Off
+cant.5.v: checkbox:		Off
+cant.5.m: checkbox:		Off
+cant.6.s: checkbox:		Off
+cant.6.v: checkbox:		Off
+Tspell.slot.9.used: plaintext:		S9U
+str score: plaintext:		
+Text18: plaintext:		
+Con ability score: plaintext:		
+Int ability score: plaintext:		
+con item bonus: plaintext:		
+int item bonus: plaintext:		
+Text23: plaintext:		
+str item bonus: plaintext:		
+Text17: plaintext:		
+weapon profs: plaintext:		Weaponprof
+armor profs: plaintext:		Armorprof
+tools: plaintext:		Toolprof
+advantages: plaintext:		Advantageprof
+feet: plaintext:		Boot
+age: plaintext:		CAge
+height: plaintext:		CHeight
+weight: plaintext:		CWeight
+eyes: plaintext:		CEyes
+skin: plaintext:		CSkin
+hair: plaintext:		CHair
+character_image: button:		
+deity_symbol: button:		
+Deity: plaintext:		Deityname
+Allies and orgs: plaintext:		Allies and Organizations
+Allies cont: plaintext:		
+personality: plaintext:		Traits
+ideals: plaintext:		Ideals
+bonds: plaintext:		Bonds
+flaws: plaintext:		Flaws
+extra.traits: plaintext:		Additional Features
+Text115: plaintext:		m1
+Text114: plaintext:		Inv1
+Text116: plaintext:		x1
+Text196: plaintext:		m14
+Text197: plaintext:		Inv14
+Text195: plaintext:		x14
+backstory: plaintext:		Backstory
+Text136: plaintext:		m2
+Text119: plaintext:		Inv2
+Text117: plaintext:		x2
+Text168: plaintext:		m15
+Text194: plaintext:		Inv15
+Text181: plaintext:		x15
+Text144: plaintext:		m3
+Text122: plaintext:		Inv3
+Text118: plaintext:		x3
+Text167: plaintext:		m16
+Text193: plaintext:		Inv16
+Text180: plaintext:		x16
+Text145: plaintext:		m4
+Text125: plaintext:		Inv4
+Text120: plaintext:		x4
+Text166: plaintext:		m17
+Text192: plaintext:		Inv17
+Text179: plaintext:		x17
+Text146: plaintext:		m5
+Text128: plaintext:		Inv5
+Text121: plaintext:		x5
+Text165: plaintext:		m18
+Text191: plaintext:		Inv18
+Text178: plaintext:		x18
+Text147: plaintext:		m6
+Text131: plaintext:		Inv6
+Text123: plaintext:		x6
+Text164: plaintext:		m19
+Text190: plaintext:		Inv19
+Text177: plaintext:		x19
+Text148: plaintext:		m7
+Text134: plaintext:		Inv7
+Text124: plaintext:		x7
+Text163: plaintext:		m20
+Text189: plaintext:		Inv20
+Text176: plaintext:		x20
+Text149: plaintext:		m8
+Text137: plaintext:		Inv8
+Text126: plaintext:		x8
+Text162: plaintext:		m21
+Text188: plaintext:		Inv21
+Text175: plaintext:		x21
+Text150: plaintext:		m9
+Text143: plaintext:		Inv9
+Text127: plaintext:		x9
+Text161: plaintext:		m22
+Text182: plaintext:		Inv22
+Text174: plaintext:		x22
+Text151: plaintext:		m10
+Text142: plaintext:		Inv10
+Text129: plaintext:		x10
+Text160: plaintext:		m23
+Text183: plaintext:		Inv23
+Text173: plaintext:		x23
+Text152: plaintext:		m11
+Text141: plaintext:		Inv11
+Text130: plaintext:		x11
+Text159: plaintext:		m24
+Text184: plaintext:		Inv24
+Text172: plaintext:		x24
+Text153: plaintext:		m12
+Text140: plaintext:		Inv12
+Text132: plaintext:		x12
+Text158: plaintext:		m25
+Text185: plaintext:		Inv25
+Text171: plaintext:		x25
+Text154: plaintext:		m13
+Text139: plaintext:		Inv13
+Text133: plaintext:		x13
+Text157: plaintext:		m26
+Text186: plaintext:		Inv26
+Text170: plaintext:		x26
+companion.image: button:		
+comp weight tot: plaintext:		
+comp heavily encumbered: checkbox:		Off
+comp encumbered: checkbox:		Off
+comp other actions: plaintext:		
+comp death 2: checkbox:		Off
+comp save 2: checkbox:		Off
+comp death 3: checkbox:		Off
+comp death 1: checkbox:		Off
+comp save 3: checkbox:		Off
+comp save 1: checkbox:		Off
+comp AC: plaintext:		CAC
+comp init: plaintext:		CINIT
+comp temp hp: plaintext:		CTEMPHP
+comp hp tot: plaintext:		CHP
+comp buffs: plaintext:		CCONDS
+comp hd tot: plaintext:		
+comp hd used: plaintext:		
+comp hd tot2: plaintext:		
+comp hd used2: plaintext:		
+comp hd: plaintext:		
+comp hd2: plaintext:		
+comp creature: plaintext:		CompRace
+comp bonded to: plaintext:		CompBond
+comp size: plaintext:		CompSize
+comp name: plaintext:		CompName
+comp align: plaintext:		CompAlign
+comp weight: plaintext:		CompWght
+comp type: plaintext:		CompRaceType
+bludg i: checkbox:		Off
+bludg V: checkbox:		Off
+poison i: checkbox:		Off
+poison R: checkbox:		Off
+poison V: checkbox:		Off
+radiant i: checkbox:		Off
+radiant R: checkbox:		Off
+radiant V: checkbox:		Off
+acid i: checkbox:		Off
+acid R: checkbox:		Off
+lightning i: checkbox:		Off
+lightning R: checkbox:		Off
+lightning V: checkbox:		Off
+pierce i: checkbox:		Off
+slash i: checkbox:		Off
+cold i: checkbox:		Off
+fire i: checkbox:		Off
+pierce R: checkbox:		Off
+slash R: checkbox:		Off
+cold R: checkbox:		Off
+fire R: checkbox:		Off
+bludg R: checkbox:		Off
+pierce V: checkbox:		Off
+slash V: checkbox:		Off
+psych i: checkbox:		Off
+thunder i: checkbox:		Off
+thunder R: checkbox:		Off
+thunder V: checkbox:		Off
+necro i: checkbox:		Off
+cold V: checkbox:		Off
+fire V: checkbox:		Off
+psych R: checkbox:		Off
+necro R: checkbox:		Off
+acid V: checkbox:		Off
+psych V: checkbox:		Off
+necro V: checkbox:		Off
+force i: checkbox:		Off
+force R: checkbox:		Off
+force V: checkbox:		Off
+comp passive perception: plaintext:		CPASSPERC
+comp weapon 1: plaintext:		CWeapon1
+comp atk1: plaintext:		
+comp dmg 1: plaintext:		CWeapon1DMG
+comp weapon 2: plaintext:		CWeapon2
+comp atk 2: plaintext:		
+comp dmg 2: plaintext:		CWeapon2DMG
+comp weapon 3: plaintext:		CWeapon2
+comp atk 3: plaintext:		
+comp dmg 3: plaintext:		CWeapon3DMG
+comp weapn 4: plaintext:		CWeapon2
+comp atk 4: plaintext:		
+comp dmg 4: plaintext:		CWeapon4DMG
+comp slash 1: checkbox:		Off
+comp pierce 1: checkbox:		Off
+comp bludg 1: checkbox:		Off
+comp slash 2: checkbox:		Off
+comp pierce 2: checkbox:		Off
+comp bludg 2: checkbox:		Off
+comp slash 3: checkbox:		Off
+comp pierce 3: checkbox:		Off
+comp bludg 3: checkbox:		Off
+comp slash 4: checkbox:		Off
+comp pierce 4: checkbox:		Off
+comp bludg 4: checkbox:		Off
+Check Box28: checkbox:		Off
+Cantrip 1 Concentration: checkbox:		Off
+Cantrip 2 Concentration: checkbox:		Off
+Cantrip 3 Concentration: checkbox:		Off
+Cantrip 4 Concentration: checkbox:		Off
+Cantrip 5 Concentration: checkbox:		Off
+Cantrip 6 Concentration: checkbox:		Off
+comp skill str save: plaintext:		
+comp ath skill: plaintext:		
+comp ath prof: checkbox:		Off
+comp str save skill: checkbox:		Off
+comp ath exp: checkbox:		Off
+comp dex ability score: plaintext:		
+comp dex saving throw: plaintext:		
+comp Dex bonus: plaintext:		CDEX
+comp Total Acrobatics bonus: plaintext:		
+comp dex item bonus: plaintext:		
+comp Total Sleight of Hand bonus: plaintext:		
+comp Total Stealth bonus: plaintext:		
+comp Con ability score: plaintext:		
+comp con bonus: plaintext:		CCON
+comp Total con saving throw: plaintext:		
+comp con item bonus: plaintext:		
+comp Total int saving throw: plaintext:		
+comp Total arcana bonus: plaintext:		
+comp Total history bonus: plaintext:		
+comp Total investigation bonus: plaintext:		
+comp Total nature bonus: plaintext:		
+comp Total religion bonus: plaintext:		
+comp Total wis saving throw: plaintext:		
+comp Total animal handling bonus: plaintext:		
+comp Total insight bonus: plaintext:		
+comp Total medicine bonus: plaintext:		
+comp deception saving prof: checkbox:		Off
+comp intimidation prof: checkbox:		Off
+comp performance prof: checkbox:		Off
+comp con saving prof: checkbox:		Off
+comp wis saving prof: checkbox:		Off
+comp Total perception bonus: plaintext:		
+comp animal handling exp: checkbox:		Off
+comp insight exp: checkbox:		Off
+comp medicine exp: checkbox:		Off
+comp perception exp: checkbox:		Off
+comp survival exp: checkbox:		Off
+comp acrobatics prof: checkbox:		Off
+comp Sleight of Hand prof: checkbox:		Off
+comp Stealth prof: checkbox:		Off
+comp acrobatics exp: checkbox:		Off
+comp Sleight of Hand exp: checkbox:		Off
+comp Stealth exp: checkbox:		Off
+comp wis item bonus: plaintext:		
+comp wis bonus: plaintext:		CWIS
+comp cha ability score: plaintext:		
+comp cha bonus: plaintext:		CCHA
+comp int item bonus: plaintext:		
+comp Int ability score: plaintext:		
+comp int bonus: plaintext:		CINT
+comp wis ability score: plaintext:		
+comp cha saving prof: checkbox:		Off
+comp Investigation prof: checkbox:		Off
+comp Total survival bonus: plaintext:		
+comp Total deception bonus: plaintext:		
+comp Total cha saving throw: plaintext:		
+comp  cha item bonus: plaintext:		
+comp hist prof: checkbox:		Off
+comp dex saving prof: checkbox:		Off
+comp con prof: checkbox:		Off
+comp Total performance bonus: plaintext:		
+comp Total intimidation bonus: plaintext:		
+comp arcana prof: checkbox:		Off
+comp arcana exp: checkbox:		Off
+comp history exp: checkbox:		Off
+comp investigation exp: checkbox:		Off
+comp nature exp: checkbox:		Off
+comp religion exp: checkbox:		Off
+comp nature prof: checkbox:		Off
+comp religion prof: checkbox:		Off
+comp animal handling prof: checkbox:		Off
+comp insight prof: checkbox:		Off
+comp medicine prof: checkbox:		Off
+comp perception prof: checkbox:		Off
+comp survival prof: checkbox:		Off
+comp deception exp: checkbox:		Off
+comp intimidation exp: checkbox:		Off
+comp persuasion prof: checkbox:		Off
+comp performance exp: checkbox:		Off
+comp persuasion exp: checkbox:		Off
+comp Total persuasion bonus: plaintext:		
+comp str item bonus: plaintext:		
+comp STR Bonus: plaintext:		CSTR
+comp str score: plaintext:		
+dex item bonus: plaintext:		
+Dex bonus: plaintext:		DEX
+dex ability score: plaintext:		
+comp current hp: plaintext:		CCURRHP
+comp features: plaintext:		CFeatures and Traits
