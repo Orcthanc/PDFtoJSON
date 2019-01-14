@@ -936,184 +936,181 @@ item.ammo.3.used.s=ammo.3.used
 item.ammo.4.name.s=ammo4_name
 item.ammo.4.total.s=ammo.4.total
 item.ammo.4.used.s=ammo.4.used
-head: plaintext:		Helm
-neck: plaintext:		Neck
-armor: plaintext:		Chest
-gloves: plaintext:		Gauntlet
-back: plaintext:		Cloak
-ring.1: plaintext:		Ring1
-ring.2: plaintext:		Ring2
-belt: plaintext:		Belt
-backpack.1.0.0: plaintext:		Item1
-backpack.1.0.1: plaintext:		Item8
-backpack.1.1.0: plaintext:		Item2
-backpack.1.1.1: plaintext:		Item9
-backpack.1.2.0: plaintext:		Item3
-backpack.1.2.1: plaintext:		Item10
-backpack.1.3.0: plaintext:		Item4
-backpack.1.3.1: plaintext:		Item11
-backpack.1.4.0: plaintext:		Item5
-backpack.1.4.1: plaintext:		Item12
-backpack.1.5.0: plaintext:		Item6
-backpack.1.5.1: plaintext:		Item13
-backpack.1.6.0: plaintext:		Item7
-backpack.1.6.1: plaintext:		Item14
-backpack.wt.1.0.0: plaintext:		W1
-backpack.wt.1.0.1: plaintext:		W8
-backpack.wt.1.1.0: plaintext:		W2
-backpack.wt.1.1.1: plaintext:		W9
-backpack.wt.1.2.0: plaintext:		W3
-backpack.wt.1.2.1: plaintext:		W10
-backpack.wt.1.3.0: plaintext:		W4
-backpack.wt.1.3.1: plaintext:		W11
-backpack.wt.1.4.0: plaintext:		W5
-backpack.wt.1.4.1: plaintext:		W12
-backpack.wt.1.5.0: plaintext:		W6
-backpack.wt.1.5.1: plaintext:		W13
-backpack.wt.1.6.0: plaintext:		W7
-backpack.wt.1.6.1: plaintext:		W14
-cantrip.detail.1: plaintext:		Can1DMG
-cantrip.detail.2: plaintext:		Can2DMG
-cantrip.detail.3: plaintext:		Can3DMG
-cantrip.detail.4: plaintext:		Can4DMG
-cantrip.detail.5: plaintext:		Can5DMG
-cantrip.detail.6: plaintext:		Can6DMG
-cantrip.1: plaintext:		Can1
-cantrip.2: plaintext:		Can2
-cantrip.3: plaintext:		Can3
-cantrip.4: plaintext:		Can4
-cantrip.5: plaintext:		Can5
-cantrip.6: plaintext:		Can6
-cant.1.s: checkbox:		Off
-cant.1.v: checkbox:		Off
-cant.1.m: checkbox:		Off
-cant.2.s: checkbox:		Off
-cant.2.v: checkbox:		Off
-cant.2.m: checkbox:		Off
-cant.3.s: checkbox:		Off
-cant.3.v: checkbox:		Off
-cant.3.m: checkbox:		Off
-cant.4.s: checkbox:		Off
-cant.4.v: checkbox:		Off
-cant.4.m: checkbox:		Off
-cant.5.s: checkbox:		Off
-cant.5.v: checkbox:		Off
-cant.5.m: checkbox:		Off
-cant.6.s: checkbox:		Off
-cant.6.v: checkbox:		Off
-str score: plaintext:		
-Text18: plaintext:		
-Con ability score: plaintext:		
-Int ability score: plaintext:		
-con item bonus: plaintext:		
-int item bonus: plaintext:		
-Text23: plaintext:		
-str item bonus: plaintext:		
-Text17: plaintext:		
-weapon profs: plaintext:		Weaponprof
-armor profs: plaintext:		Armorprof
-tools: plaintext:		Toolprof
-advantages: plaintext:		Advantageprof
-feet: plaintext:		Boot
-age: plaintext:		CAge
-height: plaintext:		CHeight
-weight: plaintext:		CWeight
-eyes: plaintext:		CEyes
-skin: plaintext:		CSkin
-hair: plaintext:		CHair
-character_image: button:		
-deity_symbol: button:		
-Deity: plaintext:		Deityname
-Allies and orgs: plaintext:		Allies and Organizations
-Allies cont: plaintext:		
-personality: plaintext:		Traits
-ideals: plaintext:		Ideals
-bonds: plaintext:		Bonds
-flaws: plaintext:		Flaws
-extra.traits: plaintext:		Additional Features
-Text115: plaintext:		m1
-Text114: plaintext:		Inv1
-Text116: plaintext:		x1
-Text196: plaintext:		m14
-Text197: plaintext:		Inv14
-Text195: plaintext:		x14
-backstory: plaintext:		Backstory
-Text136: plaintext:		m2
-Text119: plaintext:		Inv2
-Text117: plaintext:		x2
-Text168: plaintext:		m15
-Text194: plaintext:		Inv15
-Text181: plaintext:		x15
-Text144: plaintext:		m3
-Text122: plaintext:		Inv3
-Text118: plaintext:		x3
-Text167: plaintext:		m16
-Text193: plaintext:		Inv16
-Text180: plaintext:		x16
-Text145: plaintext:		m4
-Text125: plaintext:		Inv4
-Text120: plaintext:		x4
-Text166: plaintext:		m17
-Text192: plaintext:		Inv17
-Text179: plaintext:		x17
-Text146: plaintext:		m5
-Text128: plaintext:		Inv5
-Text121: plaintext:		x5
-Text165: plaintext:		m18
-Text191: plaintext:		Inv18
-Text178: plaintext:		x18
-Text147: plaintext:		m6
-Text131: plaintext:		Inv6
-Text123: plaintext:		x6
-Text164: plaintext:		m19
-Text190: plaintext:		Inv19
-Text177: plaintext:		x19
-Text148: plaintext:		m7
-Text134: plaintext:		Inv7
-Text124: plaintext:		x7
-Text163: plaintext:		m20
-Text189: plaintext:		Inv20
-Text176: plaintext:		x20
-Text149: plaintext:		m8
-Text137: plaintext:		Inv8
-Text126: plaintext:		x8
-Text162: plaintext:		m21
-Text188: plaintext:		Inv21
-Text175: plaintext:		x21
-Text150: plaintext:		m9
-Text143: plaintext:		Inv9
-Text127: plaintext:		x9
-Text161: plaintext:		m22
-Text182: plaintext:		Inv22
-Text174: plaintext:		x22
-Text151: plaintext:		m10
-Text142: plaintext:		Inv10
-Text129: plaintext:		x10
-Text160: plaintext:		m23
-Text183: plaintext:		Inv23
-Text173: plaintext:		x23
-Text152: plaintext:		m11
-Text141: plaintext:		Inv11
-Text130: plaintext:		x11
-Text159: plaintext:		m24
-Text184: plaintext:		Inv24
-Text172: plaintext:		x24
-Text153: plaintext:		m12
-Text140: plaintext:		Inv12
-Text132: plaintext:		x12
-Text158: plaintext:		m25
-Text185: plaintext:		Inv25
-Text171: plaintext:		x25
-Text154: plaintext:		m13
-Text139: plaintext:		Inv13
-Text133: plaintext:		x13
-Text157: plaintext:		m26
-Text186: plaintext:		Inv26
-Text170: plaintext:		x26
-companion.image: button:		
-comp weight tot: plaintext:		
-comp heavily encumbered: checkbox:		Off
-comp encumbered: checkbox:		Off
+item.armor.head.name.s=head
+item.armor.neck.name.s=neck
+item.armor.armor.name.s=armor
+item.armor.gloves.name.s=gloves
+item.armor.back.name.s=back
+item.armor.ring.1.name.s=ring.1
+item.armor.ring.2.name.s=ring.2
+item.armor.belt.name.s=belt
+item.armor.boot.name.s=feet
+item.backpack.0.name.s=backpack.1.0.0
+item.backpack.7.name.s=backpack.1.0.1
+item.backpack.1.name.s=backpack.1.1.0
+item.backpack.8.name.s=backpack.1.1.1
+item.backpack.2.name.s=backpack.1.2.0
+item.backpack.9.name.s=backpack.1.2.1
+item.backpack.3.name.s=backpack.1.3.0
+item.backpack.10.name.s=backpack.1.3.1
+item.backpack.4.name.s=backpack.1.4.0
+item.backpack.11.name.s=backpack.1.4.1
+item.backpack.5.name.s=backpack.1.5.0
+item.backpack.12.name.s=backpack.1.5.1
+item.backpack.6.name.s=backpack.1.6.0
+item.backpack.13.name.s=backpack.1.6.1
+item.backpack.0.weight.s=backpack.wt.1.0.0
+item.backpack.7.weight.s=backpack.wt.1.0.1
+item.backpack.1.weight.s=backpack.wt.1.1.0
+item.backpack.8.weight.s=backpack.wt.1.1.1
+item.backpack.2.weight.s=backpack.wt.1.2.0
+item.backpack.9.weight.s=backpack.wt.1.2.1
+item.backpack.3.weight.s=backpack.wt.1.3.0
+item.backpack.10.weight.s=backpack.wt.1.3.1
+item.backpack.4.weight.s=backpack.wt.1.4.0
+item.backpack.11.weight.s=backpack.wt.1.4.1
+item.backpack.5.weight.s=backpack.wt.1.5.0
+item.backpack.12.weight.s=backpack.wt.1.5.1
+item.backpack.6.weight.s=backpack.wt.1.6.0
+item.backpack.13.weight.s=backpack.wt.1.6.1
+hotbar.spell.0.1.detail.s=cantrip.detail.1
+hotbar.spell.0.2.detail.s=cantrip.detail.2
+hotbar.spell.0.3.detail.s=cantrip.detail.3
+hotbar.spell.0.4.detail.s=cantrip.detail.4
+hotbar.spell.0.5.detail.s=cantrip.detail.5
+hotbar.spell.0.6.detail.s=cantrip.detail.6
+hotbar.spell.0.1.name.s=cantrip.1
+hotbar.spell.0.2.name.s=cantrip.2
+hotbar.spell.0.3.name.s=cantrip.3
+hotbar.spell.0.4.name.s=cantrip.4
+hotbar.spell.0.5.name.s=cantrip.5
+hotbar.spell.0.6.name.s=cantrip.6
+hotbar.spell.0.1.s.b=cant.1.s
+hotbar.spell.0.1.v.b=cant.1.v
+hotbar.spell.0.1.m.b=cant.1.m
+hotbar.spell.0.2.s.b=cant.2.s
+hotbar.spell.0.2.v.b=cant.2.v
+hotbar.spell.0.2.m.b=cant.2.m
+hotbar.spell.0.3.s.b=cant.3.s
+hotbar.spell.0.3.v.b=cant.3.v
+hotbar.spell.0.3.m.b=cant.3.m
+hotbar.spell.0.4.s.b=cant.4.s
+hotbar.spell.0.4.v.b=cant.4.v
+hotbar.spell.0.4.m.b=cant.4.m
+hotbar.spell.0.5.s.b=cant.5.s
+hotbar.spell.0.5.v.b=cant.5.v
+hotbar.spell.0.5.m.b=cant.5.m
+hotbar.spell.0.6.s.b=cant.6.s
+hotbar.spell.0.6.v.b=cant.6.v
+stats.str.score.s=str score
+stats.wis.score.s=Text18
+stats.con.score.s=Con ability score
+stats.int.score.s=Int ability score
+stats.con.bonus.s=con item bonus
+stats.int.bonus.s=int item bonus
+stats.cha.score.s=Text23
+stats.str.bonus.s=str item bonus
+stats.wis.bonus.s=Text17
+stats.prof.misc.weapon.s=weapon profs
+stats.prof.misc.armor.s=armor profs
+stats.prof.misc.tools.s=tools
+stats.prof.misc.advanteges.s=advantages
+stats.desc.age.s=age
+stats.desc.height.s=height
+stats.desc.weight.s=weight
+stats.desc.eyes.s=eyes
+stats.desc.skin.s=skin
+stats.desc.hair.s=hair
+stats.desc.deity.name.s=Deity
+stats.desc.allies.name.s=Allies and orgs
+stats.desc.deity.desc.s=Allies cont
+stats.desc.personality.s=personality
+stats.desc.ideals.s=ideals
+stats.desc.bonds.s=bonds
+stats.desc.flaws.s=flaws
+stats.desc.backstory.s=backstory
+stats.desc.additionalfeatures.s=extra.traits
+item.0.weight.s=Text115
+item.0.name.s=Text114
+item.0.amount.s=Text116
+item.13.weight.s=Text196
+item.13.name.s=Text197
+item.13.amount.s=Text195
+item.1.weight.s=Text136
+item.1.name.s=Text119
+item.1.amount.s=Text117
+item.14.weight.s=Text168
+item.14.name.s=Text194
+item.14.amount.s=Text181
+item.2.weight.s=Text144
+item.2.name.s=Text122
+item.2.amount.s=Text118
+item.15.weight.s=Text167
+item.15.name.s=Text193
+item.15.amount.s=Text180
+item.3.weight.s=Text145
+item.3.name.s=Text125
+item.3.amount.s=Text120
+item.16.weight.s=Text166
+item.16.name.s=Text192
+item.16.amount.s=Text179
+item.4.weight.s=Text146
+item.4.name.s=Text128
+item.4.amount.s=Text121
+item.17.weight.s=Text165
+item.17.name.s=Text191
+item.17.amount.s=Text178
+item.5.weight.s=Text147
+item.5.name.s=Text131
+item.5.amount.s=Text123
+item.18.weight.s=Text164
+item.18.name.s=Text190
+item.18.amount.s=Text177
+item.6.weight.s=Text148
+item.6.name.s=Text134
+item.6.amount.s=Text124
+item.19.weight.s=Text163
+item.19.name.s=Text189
+item.19.amount.s=Text176
+item.7.weight.s=Text149
+item.7.name.s=Text137
+item.7.amount.s=Text126
+item.20.weight.s=Text162
+item.20.name.s=Text188
+item.20.amount.s=Text175
+item.8.weight.s=Text150
+item.8.name.s=Text143
+item.8.amount.s=Text127
+item.21.weight.s=Text161
+item.21.name.s=Text182
+item.21.amount.s=Text174
+item.9.weight.s=Text151
+item.9.name.s=Text142
+item.9.amount.s=Text129
+item.22.weight.s=Text160
+item.22.name.s=Text183
+item.22.amount.s=Text173
+item.10.weight.s=Text152
+item.10.name.s=Text141
+item.10.amount.s=Text130
+item.23.weight.s=Text159
+item.23.name.s=Text184
+item.23.amount.s=Text172
+item.11.weight.s=Text153
+item.11.name.s=Text140
+item.11.amount.s=Text132
+item.24.weight.s=Text158
+item.24.name.s=Text185
+item.24.amount.s=Text171
+item.12.weight.s=Text154
+item.12.name.s=Text139
+item.12.amount.s=Text133
+item.25.weight.s=Text157
+item.25.name.s=Text186
+item.25.amount.s=Text170
+comp.item.weight.s=comp weight tot
+comp.item.encumbered.heavy.b=comp heavily encumbered
+comp.item.encumbered.normal.b=comp encumbered
 comp other actions: plaintext:		
 comp death 2: checkbox:		Off
 comp save 2: checkbox:		Off
