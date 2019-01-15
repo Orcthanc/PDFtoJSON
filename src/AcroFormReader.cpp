@@ -131,8 +131,6 @@ int AcroFormReader::parseField( PDFDictionary* dict, PDFProperties inherited_pro
 			safeQueryToString( parser, dict, "Subtype" ) == "Widget" ){
 		return 0;
 	}
-
-	//TODO check if corrupted variables
 	
 	result->name = unique_ptr<string>( new string( localNameT ));
 	result->full_name = unique_ptr<string>( new string( localNameT != "" ? base_name + localNameT : "" ));
@@ -146,9 +144,9 @@ int AcroFormReader::parseField( PDFDictionary* dict, PDFProperties inherited_pro
 		if( kids_avaible ){
 			//kids
 			result->kids = move( kids );
-		}else {
-			parseFieldsValueData( dict, flags, inherited_props, result );
 		}
+
+		parseFieldsValueData( dict, flags, inherited_props, result );
 	}else {
 		parseFieldsValueData( dict, flags, inherited_props, result );
 	}
@@ -269,6 +267,7 @@ void AcroFormReader::parseRadioButtonValue( PDFDictionary* dict, std::unique_ptr
 				value->value = true;
 				result->value = move( value );
 			}else {
+				//Actually a radiobutton
 				PDFObjectCastPtr<PDFArray> kids( parser.QueryDictionaryObject( dict, "Kids" ));
 				for( size_t i = 0; i < kids->GetLength(); i++ ){
 					PDFObjectCastPtr<PDFDictionary> widgetDict( parser.QueryArrayObject( kids.GetPtr(), i ));

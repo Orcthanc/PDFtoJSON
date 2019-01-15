@@ -1111,112 +1111,111 @@ item.25.amount.s=Text170
 comp.item.weight.s=comp weight tot
 comp.item.encumbered.heavy.b=comp heavily encumbered
 comp.item.encumbered.normal.b=comp encumbered
-comp other actions: plaintext:		
-comp death 2: checkbox:		Off
-comp save 2: checkbox:		Off
-comp death 3: checkbox:		Off
-comp death 1: checkbox:		Off
-comp save 3: checkbox:		Off
-comp save 1: checkbox:		Off
-comp AC: plaintext:		CAC
-comp init: plaintext:		CINIT
-comp temp hp: plaintext:		CTEMPHP
-comp hp tot: plaintext:		CHP
-comp buffs: plaintext:		CCONDS
-comp hd tot: plaintext:		
-comp hd used: plaintext:		
-comp hd tot2: plaintext:		
-comp hd used2: plaintext:		
-comp hd: plaintext:		
-comp hd2: plaintext:		
-comp creature: plaintext:		CompRace
-comp bonded to: plaintext:		CompBond
-comp size: plaintext:		CompSize
-comp name: plaintext:		CompName
-comp align: plaintext:		CompAlign
-comp weight: plaintext:		CompWght
-comp type: plaintext:		CompRaceType
-bludg i: checkbox:		Off
-bludg V: checkbox:		Off
-poison i: checkbox:		Off
-poison R: checkbox:		Off
-poison V: checkbox:		Off
-radiant i: checkbox:		Off
-radiant R: checkbox:		Off
-radiant V: checkbox:		Off
-acid i: checkbox:		Off
-acid R: checkbox:		Off
-lightning i: checkbox:		Off
-lightning R: checkbox:		Off
-lightning V: checkbox:		Off
-pierce i: checkbox:		Off
-slash i: checkbox:		Off
-cold i: checkbox:		Off
-fire i: checkbox:		Off
-pierce R: checkbox:		Off
-slash R: checkbox:		Off
-cold R: checkbox:		Off
-fire R: checkbox:		Off
-bludg R: checkbox:		Off
-pierce V: checkbox:		Off
-slash V: checkbox:		Off
-psych i: checkbox:		Off
-thunder i: checkbox:		Off
-thunder R: checkbox:		Off
-thunder V: checkbox:		Off
-necro i: checkbox:		Off
-cold V: checkbox:		Off
-fire V: checkbox:		Off
-psych R: checkbox:		Off
-necro R: checkbox:		Off
-acid V: checkbox:		Off
-psych V: checkbox:		Off
-necro V: checkbox:		Off
-force i: checkbox:		Off
-force R: checkbox:		Off
-force V: checkbox:		Off
-comp passive perception: plaintext:		CPASSPERC
-comp weapon 1: plaintext:		CWeapon1
-comp atk1: plaintext:		
-comp dmg 1: plaintext:		CWeapon1DMG
-comp weapon 2: plaintext:		CWeapon2
-comp atk 2: plaintext:		
-comp dmg 2: plaintext:		CWeapon2DMG
-comp weapon 3: plaintext:		CWeapon2
-comp atk 3: plaintext:		
-comp dmg 3: plaintext:		CWeapon3DMG
-comp weapn 4: plaintext:		CWeapon2
-comp atk 4: plaintext:		
-comp dmg 4: plaintext:		CWeapon4DMG
-comp slash 1: checkbox:		Off
-comp pierce 1: checkbox:		Off
-comp bludg 1: checkbox:		Off
-comp slash 2: checkbox:		Off
-comp pierce 2: checkbox:		Off
-comp bludg 2: checkbox:		Off
-comp slash 3: checkbox:		Off
-comp pierce 3: checkbox:		Off
-comp bludg 3: checkbox:		Off
-comp slash 4: checkbox:		Off
-comp pierce 4: checkbox:		Off
-comp bludg 4: checkbox:		Off
-Check Box28: checkbox:		Off
-Cantrip 1 Concentration: checkbox:		Off
-Cantrip 2 Concentration: checkbox:		Off
-Cantrip 3 Concentration: checkbox:		Off
-Cantrip 4 Concentration: checkbox:		Off
-Cantrip 5 Concentration: checkbox:		Off
-Cantrip 6 Concentration: checkbox:		Off
-comp skill str save: plaintext:		
-comp ath skill: plaintext:		
-comp ath prof: checkbox:		Off
-comp str save skill: checkbox:		Off
-comp ath exp: checkbox:		Off
-comp dex ability score: plaintext:		
-comp dex saving throw: plaintext:		
-comp Dex bonus: plaintext:		CDEX
-comp Total Acrobatics bonus: plaintext:		
-comp dex item bonus: plaintext:		
+comp.hotbar.misc.actions.s=comp other actions
+comp.stats.hp.saves.death.1.b=comp death 2
+comp.stats.hp.saves.save.1.b=comp save 2
+comp.stats.hp.saves.death.2.b=comp death 3
+comp.stats.hp.saves.death.0.b=comp death 1
+comp.stats.hp.saves.save.2.b=comp save 3
+comp.stats.hp.saves.save.0.b=comp save 1
+comp.stats.ac.s=comp AC
+comp.stats.initative=comp init
+comp.stats.hp.temp.s=comp temp hp
+comp.stats.hp.total.s=comp hp tot
+comp.stats.buffs.s=comp buffs
+comp.stats.hitdie.0.total.s=comp hd tot
+comp.stats.hitdie.0.used.s=comp hd used
+comp.stats.hitdie.1.total.s=comp hd tot2
+comp.stats.hitdie.1.used.s=comp hd used2
+comp.stats.hitdie.0.type.s=comp hd
+comp.stats.hitdie.1.type.s=comp hd2
+comp.stats.race.s=comp creature
+comp.stats.desc.master.s=comp bonded to
+comp.stats.size.s=comp size
+comp.stats.desc.name.s=comp name
+comp.stats.desc.alignment.s=comp align
+comp.stats.desc.weight.s=comp weight
+comp.stats.desc.race.type.s=comp type
+comp.stats.resistances.bludg.i.b=bludg i
+comp.stats.resistances.bludg.v.b=bludg V
+comp.stats.resistances.poison.i.b=poison i
+comp.stats.resistances.poison.r.b=poison R
+comp.stats.resistances.poison.v.b=poison V
+comp.stats.resistances.radiant.i.b=radiant i
+comp.stats.resistances.radiant.r.b=radiant R
+comp.stats.resistances.radiant.v.b=radiant V
+comp.stats.resistances.acid.i.b=acid i
+comp.stats.resistances.acid.r.b=acid R
+comp.stats.resistances.lightning.i.b=lightning i
+comp.stats.resistances.lightning.r.b=lightning R
+comp.stats.resistances.lightning.v.b=lightning V
+comp.stats.resistances.pierce.i.b=pierce i
+comp.stats.resistances.slash.i.b=slash i
+comp.stats.resistances.cold.i.b=cold i
+comp.stats.resistances.fire.i.b=fire i
+comp.stats.resistances.pierce.r.b=pierce R
+comp.stats.resistances.slash.r.b=slash R
+comp.stats.resistances.cold.r.b=cold R
+comp.stats.resistances.fire.r.b=fire R
+comp.stats.resistances.bludg.r.b=bludg R
+comp.stats.resistances.pierce.v.b=pierce V
+comp.stats.resistances.slash.v.b=slash V
+comp.stats.resistances.psych.i.b=psych i
+comp.stats.resistances.thunder.i.b=thunder i
+comp.stats.resistances.thunder.r.b=thunder R
+comp.stats.resistances.thunder.v.b=thunder V
+comp.stats.resistances.necro.i.b=necro i
+comp.stats.resistances.cold.v.b=cold V
+comp.stats.resistances.fire.v.b=fire V
+comp.stats.resistances.psych.r.b=psych R
+comp.stats.resistances.necro.r.b=necro R
+comp.stats.resistances.acid.v.b=acid V
+comp.stats.resistances.psych.v.b=psych V
+comp.stats.resistances.necro.v.b=necro V
+comp.stats.resistances.force.i.b=force i
+comp.stats.resistances.force.r.b=force R
+comp.stats.resistances.force.v.b=force V
+comp.stats.passive.perception.s=comp passive perception
+comp.item.weapon.0.name.s=comp weapon 1
+comp.item.weapon.0.atk.s=comp atk1
+comp.item.weapon.0.dmg.s=comp dmg 1
+comp.item.weapon.1.name.s=comp weapon 2
+comp.item.weapon.1.atk.s=comp atk 2
+comp.item.weapon.1.dmg.s=comp dmg 2
+comp.item.weapon.2.name.s=comp weapon 3
+comp.item.weapon.2.atk.s=comp atk 3
+comp.item.weapon.2.dmg.s=comp dmg 3
+comp.item.weapon.3.name.s=comp weapn 4
+comp.item.weapon.3.atk.s=comp atk 4
+comp.item.weapon.3.dmg.s=comp dmg 4
+comp.item.weapon.0.slashing.b=comp slash 1
+comp.item.weapon.0.piercing.b=comp pierce 1
+comp.item.weapon.0.bludgeoning.b=comp bludg 1
+comp.item.weapon.1.slashing.b=comp slash 2
+comp.item.weapon.1.piercing.b=comp pierce 2
+comp.item.weapon.1.bludgeoning.b=comp bludg 2
+comp.item.weapon.2.slashing.b=comp slash 3
+comp.item.weapon.2.piercing.b=comp pierce 3
+comp.item.weapon.2.bludgeoning.b=comp bludg 3
+comp.item.weapon.3.slashing.b=comp slash 4
+comp.item.weapon.3.piercing.b=comp pierce 4
+comp.item.weapon.3.bludgeoning.b=comp bludg 4
+comp.spell.0.concentration.b=Cantrip 1 Concentration
+comp.spell.0.concentration.b=Cantrip 2 Concentration
+comp.spell.0.concentration.b=Cantrip 3 Concentration
+comp.spell.0.concentration.b=Cantrip 4 Concentration
+comp.spell.0.concentration.b=Cantrip 5 Concentration
+comp.spell.0.concentration.b=Cantrip 6 Concentration
+comp.stats.ability.savingthrow.str.s=comp skill str save	
+comp.stats.ability.athletics.s=comp ath skill
+comp.stats.ability.athletics.proficiency.b=comp ath prof
+comp.stats.ability.savingthrow.str.proficiency.b=comp str save skill
+comp.stats.ability.athletics.expertise.b=comp ath exp
+comp.stats.dex.score.s=comp dex ability score
+comp.stats.ability.savingthrow.dex.s=comp dex saving throw
+comp.stats.dex.s=comp Dex bonus
+comp.stats.ability.acrobatics.s=comp Total Acrobatics bonus
+comp.stats.dex.bonus.s=comp dex item bonus
 comp Total Sleight of Hand bonus: plaintext:		
 comp Total Stealth bonus: plaintext:		
 comp Con ability score: plaintext:		
