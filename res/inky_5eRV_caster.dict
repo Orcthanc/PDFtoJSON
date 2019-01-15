@@ -1208,90 +1208,90 @@ comp.spell.0.concentration.b=Cantrip 5 Concentration
 comp.spell.0.concentration.b=Cantrip 6 Concentration
 comp.stats.ability.savingthrow.str.s=comp skill str save	
 comp.stats.ability.athletics.s=comp ath skill
-comp.stats.ability.athletics.proficiency.b=comp ath prof
+comp.stats.ability.athletics.expertise.b=comp ath prof
 comp.stats.ability.savingthrow.str.proficiency.b=comp str save skill
-comp.stats.ability.athletics.expertise.b=comp ath exp
+comp.stats.ability.athletics.proficiency.b=comp ath exp
 comp.stats.dex.score.s=comp dex ability score
 comp.stats.ability.savingthrow.dex.s=comp dex saving throw
-comp.stats.dex.s=comp Dex bonus
+comp.stats.dex.mod.s=comp Dex bonus
 comp.stats.ability.acrobatics.s=comp Total Acrobatics bonus
 comp.stats.dex.bonus.s=comp dex item bonus
-comp Total Sleight of Hand bonus: plaintext:		
-comp Total Stealth bonus: plaintext:		
-comp Con ability score: plaintext:		
-comp con bonus: plaintext:		CCON
-comp Total con saving throw: plaintext:		
-comp con item bonus: plaintext:		
-comp Total int saving throw: plaintext:		
-comp Total arcana bonus: plaintext:		
-comp Total history bonus: plaintext:		
-comp Total investigation bonus: plaintext:		
-comp Total nature bonus: plaintext:		
-comp Total religion bonus: plaintext:		
-comp Total wis saving throw: plaintext:		
-comp Total animal handling bonus: plaintext:		
-comp Total insight bonus: plaintext:		
-comp Total medicine bonus: plaintext:		
-comp deception saving prof: checkbox:		Off
-comp intimidation prof: checkbox:		Off
-comp performance prof: checkbox:		Off
-comp con saving prof: checkbox:		Off
-comp wis saving prof: checkbox:		Off
-comp Total perception bonus: plaintext:		
-comp animal handling exp: checkbox:		Off
-comp insight exp: checkbox:		Off
-comp medicine exp: checkbox:		Off
-comp perception exp: checkbox:		Off
-comp survival exp: checkbox:		Off
-comp acrobatics prof: checkbox:		Off
-comp Sleight of Hand prof: checkbox:		Off
-comp Stealth prof: checkbox:		Off
-comp acrobatics exp: checkbox:		Off
-comp Sleight of Hand exp: checkbox:		Off
-comp Stealth exp: checkbox:		Off
-comp wis item bonus: plaintext:		
-comp wis bonus: plaintext:		CWIS
-comp cha ability score: plaintext:		
-comp cha bonus: plaintext:		CCHA
-comp int item bonus: plaintext:		
-comp Int ability score: plaintext:		
-comp int bonus: plaintext:		CINT
-comp wis ability score: plaintext:		
-comp cha saving prof: checkbox:		Off
-comp Investigation prof: checkbox:		Off
-comp Total survival bonus: plaintext:		
-comp Total deception bonus: plaintext:		
-comp Total cha saving throw: plaintext:		
-comp  cha item bonus: plaintext:		
-comp hist prof: checkbox:		Off
-comp dex saving prof: checkbox:		Off
-comp con prof: checkbox:		Off
-comp Total performance bonus: plaintext:		
-comp Total intimidation bonus: plaintext:		
-comp arcana prof: checkbox:		Off
-comp arcana exp: checkbox:		Off
-comp history exp: checkbox:		Off
-comp investigation exp: checkbox:		Off
-comp nature exp: checkbox:		Off
-comp religion exp: checkbox:		Off
-comp nature prof: checkbox:		Off
-comp religion prof: checkbox:		Off
-comp animal handling prof: checkbox:		Off
-comp insight prof: checkbox:		Off
-comp medicine prof: checkbox:		Off
-comp perception prof: checkbox:		Off
-comp survival prof: checkbox:		Off
-comp deception exp: checkbox:		Off
-comp intimidation exp: checkbox:		Off
-comp persuasion prof: checkbox:		Off
-comp performance exp: checkbox:		Off
-comp persuasion exp: checkbox:		Off
-comp Total persuasion bonus: plaintext:		
-comp str item bonus: plaintext:		
-comp STR Bonus: plaintext:		CSTR
-comp str score: plaintext:		
-dex item bonus: plaintext:		
-Dex bonus: plaintext:		DEX
-dex ability score: plaintext:		
-comp current hp: plaintext:		CCURRHP
-comp features: plaintext:		CFeatures and Traits
+comp.stats.ability.sleightofhand.s=comp Total Sleight of Hand bonus
+comp.stats.ability.stealth.s=comp Total Stealth bonus
+comp.stats.con.score.s=comp Con ability score
+comp.stats.con.mod.s=comp con bonus
+comp.stats.ability.savingthrow.con.s=comp Total con saving throw
+comp.stats.con.bonus.s=comp con item bonus
+comp.stats.ability.savingthrow.int.s=comp Total int saving throw
+comp.stats.ability.arcana.s=comp Total arcana bonus
+comp.stats.ability.history.s=comp Total history bonus
+comp.stats.ability.investigation.s=comp Total investigation bonus
+comp.stats.ability.nature.s=comp Total nature bonus
+comp.stats.ability.religion.s=comp Total religion bonus
+comp.stats.ability.savingthrow.wis.s=comp Total wis saving throw
+comp.stats.ability.animalhandling.s=comp Total animal handling bonus
+comp.stats.ability.insight.s=comp Total insight bonus
+comp.stats.ability.medicine.s=comp Total medicine bonus
+comp.stats.ability.deception.expertise.b=comp deception saving prof
+comp.stats.ability.intimidation.expertise.b=comp intimidation prof
+comp.stats.ability.performance.expertise.b=comp performance prof
+comp.stats.ability.savingthrow.int.proficiency.b=comp con saving prof
+comp.stats.ability.savingthrow.wis.proficiency.b=comp wis saving prof
+comp.stats.ability.perception.s=comp Total perception bonus
+comp.stats.ability.animalhandling.proficiency.b=comp animal handling exp
+comp.stats.ability.insight.proficiency.b=comp insight exp
+comp.stats.ability.medicine.proficiency.b=comp medicine exp
+comp.stats.ability.perception.proficiency.b=comp perception exp
+comp.stats.ability.survival.proficiency.b=comp survival exp
+comp.stats.ability.acrobatics.expertise.b=comp acrobatics prof
+comp.stats.ability.sleightofhand.expertise.b=comp Sleight of Hand prof
+comp.stats.ability.stealth.expertise.b=comp Stealth prof
+comp.stats.ability.acrobatics.proficiency.b=comp acrobatics exp
+comp.stats.ability.sleightofhand.proficiency.b=comp Sleight of Hand exp
+comp.stats.ability.stealth.proficiency.b=comp Stealth exp
+comp.stats.wis.bonus.s=comp wis item bonus
+comp.stats.wis.mod.s=comp wis bonus
+comp.stats.cha.score.s=comp cha ability score
+comp.stats.cha.mod.s=comp cha bonus
+comp.stats.int.bonus.s=comp int item bonus
+comp.stats.int.score.s=comp Int ability score
+comp.stats.int.mod.s=comp int bonus
+comp.stats.wis.bonus.s=comp wis ability score
+comp.stats.ability.savingthrow.cha.proficiency.b=comp cha saving prof
+comp.stats.ability.investigation.expertise.s=comp Investigation prof
+comp.stats.ability.survival.s=comp Total survival bonus
+comp.stats.ability.deception.s=comp Total deception bonus
+comp.stats.ability.savingthrow.cha.s=comp Total cha saving throw
+comp.stats.cha.bonus.s=comp  cha item bonus
+comp.stats.ability.history.expertise.b=comp hist prof
+comp.stats.ability.savingthrow.dex.proficiency.b=comp dex saving prof
+comp.stats.ability.savingthrow.con.proficiency.b=comp con prof
+comp.stats.ability.performance.s=comp Total performance bonus
+comp.stats.ability.intimidation.s=comp Total intimidation bonus
+comp.stats.ability.arcana.expertise.b=comp arcana prof
+comp.stats.ability.arcana.proficiency.b=comp arcana exp
+comp.stats.ability.history.proficiency.b=comp history exp
+comp.stats.ability.investigation.proficiency.b=comp investigation exp
+comp.stats.ability.nature.proficiency.b=comp nature exp
+comp.stats.ability.religion.proficiency.b=comp religion exp
+comp.stats.ability.nature.expertise.b=comp nature prof
+comp.stats.ability.religion.expertise.b=comp religion prof
+comp.stats.ability.animal handling.expertise.b=comp animal handling prof
+comp.stats.ability.insight.expertise.b=comp insight prof
+comp.stats.ability.medicine.expertise.b=comp medicine prof
+comp.stats.ability.perception.expertise.b=comp perception prof
+comp.stats.ability.survival.expertise.b=comp survival prof
+comp.stats.ability.deception.proficiency.b=comp deception exp
+comp.stats.ability.intimidation.proficiency.b=comp intimidation exp
+comp.stats.ability.persuasion.expertise.b=comp persuasion prof
+comp.stats.ability.performance.proficiency.b=comp performance exp
+comp.stats.ability.persuasion.proficiency.b=comp persuasion exp
+comp.stats.ability.persuasion.s=comp Total persuasion bonus
+comp.stats.str.bonus.s=comp str item bonus
+comp.stats.str.mod.s=comp STR Bonus
+comp.stats.str.score.s=comp str score
+stats.dex.bonus.s=dex item bonus
+stats.dex.mod.s=Dex bonus
+stats.dex.score.s=dex ability score
+comp.stats.hp.current.s=comp current hp
+comp.stats.traits=comp features
