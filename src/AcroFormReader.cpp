@@ -1,4 +1,5 @@
 #include "AcroFormReader.h"
+#include "Dictionary.h"
 
 #include <PDFWriter/PDFObjectCast.h>
 #include <PDFWriter/PDFObject.h>
@@ -70,14 +71,18 @@ static void printValue( PDFValue const* value ){
 	}
 }
 
-static void printParsedThings( vector<unique_ptr<AcroFormReader::PDFFieldValues>> const&  values ){
+static void printParsedThings( vector<unique_ptr<AcroFormReader::PDFFieldValues>> const&  values, const Dictionary& dict ){
 	for( auto& a : values ){
+		
 		if( a->full_name && *a->full_name != "" && a->type ){
-			printf( "%s: %s:\t\t", a->full_name->c_str(), a->type->c_str() );
-			printValue( a->value.get() );
+//			printf( "%s: %s:\t\t", dict.lookup( *a->full_name ).c_str(), a->type->c_str() );
+//			if( !dict.exists( *a->full_name )){
+				printf( "%s: %s:\t\t", a->full_name->c_str(), a->type->c_str() );
+				printValue( a->value.get() );
+//			}
 		}
 
-		printParsedThings( a->kids );
+		printParsedThings( a->kids, dict );
 	}
 }
 
@@ -99,11 +104,27 @@ int AcroFormReader::Parse( Character &character, const char* path ){
 
 	parseFieldArray( digital_form_fields.GetPtr(), inherited_props, "", result );
 
-	printParsedThings( result );
+	Dictionary dict = Dictionary();
+
+	dict.initFromFile( "res/inky_5eRV_caster.dict", true );
+
+	printParsedThings( result, dict );
 
 	return 0;
 }
 
+/*
+void AcroFormReader::fixAcroForm( PDFArray& fields ){
+	printf( "%lu\n", parser.GetPagesCount() );
+	for( size_t i = 0; i < parser.GetPagesCount(); ++i ){
+		PDFObjectCastPtr<PDFDictionary> page = parser.ParsePage( i );
+		PDFObjectCastPtr<PDFArray> field = parser.QueryDictionaryObject( page.GetPtr(), "Annots" );
+		for( size_t i = 0; i < field->GetLength(); ++i ){
+			fields.AppendObject( field->QueryObject( i ) );
+		}
+	}
+}
+*/
 int AcroFormReader::parseFieldArray( PDFArray* array, PDFProperties inherited_props, string base_name, vector<unique_ptr<PDFFieldValues>>& result ){
 
 	for( size_t i = 0; i < array->GetLength(); ++i ){
@@ -131,7 +152,7 @@ int AcroFormReader::parseField( PDFDictionary* dict, PDFProperties inherited_pro
 			safeQueryToString( parser, dict, "Subtype" ) == "Widget" ){
 		return 0;
 	}
-	
+
 	result->name = unique_ptr<string>( new string( localNameT ));
 	result->full_name = unique_ptr<string>( new string( localNameT != "" ? base_name + localNameT : "" ));
 	result->alt_name = unique_ptr<string>( new string( localNameTU ));
@@ -145,11 +166,8 @@ int AcroFormReader::parseField( PDFDictionary* dict, PDFProperties inherited_pro
 			//kids
 			result->kids = move( kids );
 		}
-
-		parseFieldsValueData( dict, flags, inherited_props, result );
-	}else {
-		parseFieldsValueData( dict, flags, inherited_props, result );
 	}
+	parseFieldsValueData( dict, flags, inherited_props, result );
 	return 1;
 }
 

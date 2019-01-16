@@ -10,7 +10,7 @@ int Dictionary::insert( string key, string value ){
 	return 1;
 }
 
-int Dictionary::initFromFile( std::string path ){
+int Dictionary::initFromFile( std::string path, bool parse ){
 	ifstream file( path );
 	string line;
 	if( !file.is_open() )
@@ -18,12 +18,20 @@ int Dictionary::initFromFile( std::string path ){
 
 	while( getline( file, line )){
 		size_t delpos = line.find( "=" );
-		dictionary.insert({ line.substr( 0, delpos ), line.substr( delpos + 1 )});
+		if( parse )
+			dictionary.insert({ line.substr( delpos + 1 ), line.substr( 0, delpos )});
+		else
+			dictionary.insert({ line.substr( 0, delpos ), line.substr( delpos + 1 )});
 	}
 
 	return 1;
 }
 
-string Dictionary::lookup( const string& value ){
-	return dictionary.find( value )->second;
+bool Dictionary::exists( const string& value ) const{
+	return dictionary.find( value ) != dictionary.end();
+}
+
+string Dictionary::lookup( const string& value ) const{
+	auto result = dictionary.find( value );
+	return result != dictionary.end() ? result->second : "";
 }

@@ -2,6 +2,14 @@
 #types: b = checkbox; s = string
 
 class.s=class
+name.s=char name
+spell.stats.class.s=spellcasting.class
+spell.stats.ability.s=spell.ability
+spell.stats.dc.s=spell.dc
+spell.stats.atkmod.s=spell.atk
+spell.stats.pointpool.name.s=points.name
+spell.stats.pointpool.total.s=points.total
+spell.stats.pointpool.used.s=points.used
 spell.1.4.used.b=spell1.4
 spell.1.3.used.b=spell1.3
 spell.1.2.used.b=spell1.2
@@ -1206,7 +1214,7 @@ comp.spell.0.concentration.b=Cantrip 3 Concentration
 comp.spell.0.concentration.b=Cantrip 4 Concentration
 comp.spell.0.concentration.b=Cantrip 5 Concentration
 comp.spell.0.concentration.b=Cantrip 6 Concentration
-comp.stats.ability.savingthrow.str.s=comp skill str save	
+comp.stats.ability.savingthrow.str.s=comp skill str save
 comp.stats.ability.athletics.s=comp ath skill
 comp.stats.ability.athletics.expertise.b=comp ath prof
 comp.stats.ability.savingthrow.str.proficiency.b=comp str save skill

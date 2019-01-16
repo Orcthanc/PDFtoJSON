@@ -35,6 +35,7 @@ class AcroFormReader{
 	private:
 		PDFParser parser;
 		InputFile pdf;
+		
 
 		struct PDFProperties{
 			std::string ft;
@@ -50,6 +51,8 @@ class AcroFormReader{
 			}
 
 		};
+
+//		void fixAcroForm( PDFArray& root_form_fields );
 
 		int parseFieldsValueData( PDFDictionary* dict, int flags, PDFProperties const& inherited_props, std::unique_ptr<PDFFieldValues>& result );
 
