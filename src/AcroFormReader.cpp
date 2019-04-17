@@ -49,6 +49,7 @@ static void printValue( PDFValue const* value ){
 		printf( "\n" );
 		return;
 	}
+	printf( "\033[33m" );
 	switch( value->type ){
 		case eNoValue:
 			printf( "\n" );
@@ -69,17 +70,19 @@ static void printValue( PDFValue const* value ){
 			printf( "%s\n", ((PDFChoiceValue*)value)->text.c_str() );
 			break;
 	}
+	printf( "\033[0m" );
 }
 
 static void printParsedThings( vector<unique_ptr<AcroFormReader::PDFFieldValues>> const&  values, const Dictionary& dict ){
 	for( auto& a : values ){
-		
-		if( a->full_name && *a->full_name != "" && a->type ){
-//			printf( "%s: %s:\t\t", dict.lookup( *a->full_name ).c_str(), a->type->c_str() );
-//			if( !dict.exists( *a->full_name )){
-				printf( "%s: %s:\t\t", a->full_name->c_str(), a->type->c_str() );
-				printValue( a->value.get() );
-//			}
+		if( a->full_name && *a->full_name != "" && a->type && a->value && a->value->checkValueNotEmpty() ){
+			if( !dict.exists( *a->full_name )){
+				printf( "\033[31m%s: %s:\033[0m\t\t", a->full_name->c_str(), a->type->c_str() );
+			}
+			else{
+				printf( "%s: %s:\t\t", dict.lookup( *a->full_name ).c_str(), a->type->c_str() );
+			}
+			printValue( a->value.get() );
 		}
 
 		printParsedThings( a->kids, dict );
@@ -106,7 +109,7 @@ int AcroFormReader::Parse( Character &character, const char* path ){
 
 	Dictionary dict = Dictionary();
 
-	dict.initFromFile( "res/inky_5eRV_caster.dict", true );
+	dict.initFromFile( "res/pathfinder_6_pgs.dict", true );
 
 	printParsedThings( result, dict );
 

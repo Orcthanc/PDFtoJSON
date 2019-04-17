@@ -17,24 +17,36 @@ struct PDFValue {
 		this->type = type;
 	}
 	virtual ~PDFValue() = default;
+
+	virtual bool checkValueNotEmpty();
 };
 
-struct PDFOnOffValue : PDFValue {
+struct PDFOnOffValue : public PDFValue {
 	bool value;
+
+	virtual bool checkValueNotEmpty();
 };
 
-struct PDFRadioButtonValue : PDFValue {
+struct PDFRadioButtonValue : public PDFValue {
 	uint8_t value;
+
+	virtual bool checkValueNotEmpty();
 };
 
-struct PDFTextValue : PDFValue {
+struct PDFTextValue : public PDFValue {
 	std::string text;
+
+	virtual bool checkValueNotEmpty();
 };
 
-struct PDFRichTextValue : PDFTextValue {
+struct PDFRichTextValue : public PDFTextValue {
 	std::string richText;
+
+	virtual bool checkValueNotEmpty();
 };
 
-struct PDFChoiceValue : PDFValue {
+struct PDFChoiceValue : public PDFValue {
 	std::string text;
+
+	virtual bool checkValueNotEmpty();
 };
