@@ -82,14 +82,28 @@ static void printParsedThings( vector<unique_ptr<AcroFormReader::PDFFieldValues>
 			else{
 				printf( "%s: %s:\t\t", dict.lookup( *a->full_name ).c_str(), a->type->c_str() );
 			}
-			printValue( a->value.get() );
+			//printValue( a->value.get() );
+			printf( "\033[32m%s\033[0m\n", a->value->getAsString().c_str() );
 		}
 
 		printParsedThings( a->kids, dict );
 	}
 }
 
-int AcroFormReader::Parse( Character &character, const char* path ){
+static void appendToJSONObject( JSONObject* obj, vector<unique_ptr<AcroFormReader::PDFFieldValues>> const& values, const Dictionary& dict ){
+	for( auto& r: values ){
+		if( r->full_name && *r->full_name != "" && r->type && r->value && r->value->checkValueNotEmpty() ){
+			if( dict.exists( *r->full_name )){
+				obj->insert( dict.lookup( *r->full_name ), r->value->getAsString() );
+			}else {
+				obj->insert( *r->full_name, r->value->getAsString() );
+			}
+		}
+		appendToJSONObject( obj, r->kids, dict );
+	}
+}
+
+int AcroFormReader::Parse( JSONObject** obj, const char* path ){
 	pdf.OpenFile( path );
 	parser.StartPDFParsing( pdf.GetInputStream() );
 
@@ -113,21 +127,13 @@ int AcroFormReader::Parse( Character &character, const char* path ){
 
 	printParsedThings( result, dict );
 
+	*obj = new JSONObjectDict();
+
+	appendToJSONObject( *obj, result, dict );
+
 	return 0;
 }
 
-/*
-void AcroFormReader::fixAcroForm( PDFArray& fields ){
-	printf( "%lu\n", parser.GetPagesCount() );
-	for( size_t i = 0; i < parser.GetPagesCount(); ++i ){
-		PDFObjectCastPtr<PDFDictionary> page = parser.ParsePage( i );
-		PDFObjectCastPtr<PDFArray> field = parser.QueryDictionaryObject( page.GetPtr(), "Annots" );
-		for( size_t i = 0; i < field->GetLength(); ++i ){
-			fields.AppendObject( field->QueryObject( i ) );
-		}
-	}
-}
-*/
 int AcroFormReader::parseFieldArray( PDFArray* array, PDFProperties inherited_props, string base_name, vector<unique_ptr<PDFFieldValues>>& result ){
 
 	for( size_t i = 0; i < array->GetLength(); ++i ){

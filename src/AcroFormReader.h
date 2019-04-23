@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Character.h"
 #include "AcroFormValue.h"
+#include "JSONObject.h"
 
 #include <PDFWriter/PDFArray.h>
 #include <PDFWriter/PDFDictionary.h>
@@ -18,7 +18,7 @@ class AcroFormReader{
 		AcroFormReader() = default;
 		~AcroFormReader() = default;
 
-		int Parse( Character &character, const char* path );
+		int Parse( JSONObject** object, const char* path );
 
 		struct PDFFieldValues{
 			std::unique_ptr<std::string> name;
@@ -51,8 +51,6 @@ class AcroFormReader{
 			}
 
 		};
-
-//		void fixAcroForm( PDFArray& root_form_fields );
 
 		int parseFieldsValueData( PDFDictionary* dict, int flags, PDFProperties const& inherited_props, std::unique_ptr<PDFFieldValues>& result );
 

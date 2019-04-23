@@ -17,6 +17,8 @@ int Dictionary::initFromFile( std::string path, bool parse ){
 		return 0;
 
 	while( getline( file, line )){
+		if( line.c_str()[0] == '#' )
+			continue;
 		size_t delpos = line.find( "=" );
 		if( parse )
 			dictionary.insert({ line.substr( delpos + 1 ), line.substr( 0, delpos )});
